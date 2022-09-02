@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#004B49</color>
+    <color name="colorPrimaryDark">#004B49</color>
+    <color name="colorAccent">#004B49</color>
+    <color name="white">#FFF</color>
+
+    <color name="lightgray">#0E81D1</color>
+    <color name="gray">#616161</color>
+    <color name="grey">#ffcccccc</color>
+    <color name="red">#F10D0D</color>
+    <color name="warning">#C0CA33</color>
+
+    <color name="gray1">#fff</color>
+    <color name="btnbleu">#00A4C9</color>
+    <color name="green">#0E860E</color>
+    <color name="theme">#7851A9</color>
+    <color name="black">#ff333333</color>
+    <color name="blue">#ff00bbff</color>
+
+    <!--home menu-->
+    <color name="profile">#1670c0</color>
+    <color name="calendar">#bf9015</color>
+    <color name="outlets">#808080</color>
+    <color name="journey">#01205f</color>
+    <color name="logout">#454B1B</color>
+    <color name="collage">#CAC8C8</color>
+
+    <color name="textBlack">#000000</color>
+</resources>

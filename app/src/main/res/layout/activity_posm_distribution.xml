@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:name="com.efisales.apps.androidapp.MerchandisingDetailFragment"
+        android:id="@+id/fragment" android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        style="@style/activity">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@id/topbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" style="@style/topbar">
+            <TextView
+                android:id="@+id/clientname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text=""
+                style="@style/labels" />
+        </LinearLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outletquantity"
+            android:layout_width="match_parent"
+            android:layout_below="@id/topbar"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtoutletquantity"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Quantity Received"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/outletquantityrequired"
+            android:layout_width="match_parent"
+            android:layout_below="@id/outletquantity"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtoutletquantityrequired"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="Quantity Allocated"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@id/narativelabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Notes"
+            android:layout_below="@id/outletquantityrequired"
+            style="@style/input_labels" />
+        <EditText
+            android:gravity="top"
+            android:id="@id/notes"
+            android:layout_width="fill_parent"
+            android:layout_height="80.0dip"
+            android:layout_below="@+id/narativelabel"
+            style="@style/elements" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/uploadbuttonscontainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/notes">
+            <Button
+                android:id="@+id/scanFile"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:text="Take Photo..."
+                android:layout_weight="1.0"
+                style="@style/bluebuttons" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/scanPreview"
+            android:layout_width="fill_parent"
+            android:layout_height="200.0dip" android:layout_margin="5.0dip"
+            android:src="@drawable/attachment"
+            android:layout_below="@id/uploadbuttonscontainer" />
+        <Button
+            android:id="@+id/saveReportButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_below="@id/scanPreview"
+           style="@style/bluebuttons" />
+    </RelativeLayout>
+</ScrollView>

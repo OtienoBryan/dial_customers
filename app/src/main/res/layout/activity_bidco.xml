@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatButton android:id="@+id/submit_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Submit" android:layout_alignParentBottom="true" style="@style/bluebuttons" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/submit_button" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="@drawable/caregivers_logo3" />
+
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:textSize="18sp" android:text="Post your comment / Inquiry" />
+                <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/notes" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="15" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
+
+             </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

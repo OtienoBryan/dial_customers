@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:name="com.efisales.apps.androidapp.MerchandisingDetailFragment"
+        android:id="@+id/fragment" android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        style="@style/activity">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@id/topbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/topbar">
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/preImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pres"
+            android:layout_below="@id/topbar"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/uploadbuttonscontainer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/preImage">
+            <Button
+                android:id="@+id/scanFile"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:text="Take Photo of Prescription"
+                android:layout_weight="1.0"
+                style="@style/bluebuttons" />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/scanPreview"
+            android:layout_width="fill_parent"
+            android:layout_height="150.0dip" android:layout_margin="5.0dip"
+            android:src="@drawable/attachment"
+            android:layout_below="@id/uploadbuttonscontainer" />
+
+
+        <TextView
+            android:id="@+id/note_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Comment"
+            android:layout_below="@+id/scanPreview"
+            style="@style/input_labels" />
+        <EditText
+            android:gravity="top"
+            android:id="@id/notes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/note_label"
+            style="@style/elements" />
+
+        <Button
+            android:id="@+id/saveReportButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_below="@id/notes"
+            style="@style/bluebuttons" />
+
+
+
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    style="@style/activity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@id/topbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" style="@style/topbar">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select POSM allocation to distribute" style="@style/labels" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/search_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:layout_below="@id/topbar">
+        <EditText android:id="@+id/posm_search"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="10.0dip"
+            android:hint="Search by POSM" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:drawSelectorOnTop="true"
+        android:layout_below="@+id/search_container" />
+</RelativeLayout>

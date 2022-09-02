@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/relativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:background="@color/grey"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+        <TableRow android:paddingStart="10dp">
+            <TextView android:id="@+id/clientLabel"
+                android:text="Outlet :"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="textEnd"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/client"
+                android:textColor="@color/black" />
+        </TableRow>
+        <TableRow android:paddingStart="10dp">
+            <TextView
+                android:id="@+id/productNameLabel"
+                android:text="Activity :"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="textEnd"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/product"
+                android:textColor="@color/black" />
+        </TableRow>
+        <TableRow android:paddingStart="10dp">
+            <TextView
+                android:id="@+id/productCodeLabel"
+                android:text="Start Date :"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="textEnd"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/productCode"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow android:paddingStart="10dp">
+            <TextView
+                android:id="@+id/expiryDateLabel"
+                android:text="End Date :"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="textEnd"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@id/expiryDate"
+                android:textColor="@color/black" />
+        </TableRow>
+        <TableRow android:paddingStart="10dp">
+            <TextView
+                android:id="@+id/quantityLabel"
+                android:text="Days Remaining :"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="textEnd"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/diff"
+                android:textColor="@color/black" />
+        </TableRow>
+        <TableRow android:paddingStart="10dp">
+            <TextView
+                android:id="@+id/batchNoLabel"
+                android:text="Allocation :"
+                android:textAlignment="textEnd"
+                android:textColor="@color/colorPrimary"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/batchNo"
+                android:textColor="@color/black" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableQuantity"
+            android:paddingStart="10dp">
+            <TextView
+                android:text="Deployment :"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="textEnd"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/quantity"
+                android:textColor="@color/black"/>
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableBalance"
+            android:paddingStart="10dp"
+            android:paddingBottom="10dp">
+            <TextView
+                android:text="Balance :"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="textEnd"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/balance"
+                android:textColor="@color/black" />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

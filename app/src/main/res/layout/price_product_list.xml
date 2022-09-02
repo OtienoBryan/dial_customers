@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/linearLayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:background="#f2f2f2"
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:textSize="16.0sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:id="@id/productName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product Name" />
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:textSize="17.0sp"
+        android:id="@id/productCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10000" />
+
+</LinearLayout>

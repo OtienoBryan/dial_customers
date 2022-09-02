@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--<item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
+        app:showAsAction="never" />-->
+
+    <item
+        android:id="@+id/ses"
+        android:icon="@drawable/ic_search"
+        android:title="search"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_issue"
+        android:title="Issue Tracker"
+        android:visible="false"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/profile"
+        android:title="My Profile"
+        android:visible="true"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/orders"
+        android:title="My Orders"
+        android:visible="true"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_logout"
+        android:title="Logout"
+        android:visible="true"
+        app:showAsAction="never" />
+
+
+
+</menu>

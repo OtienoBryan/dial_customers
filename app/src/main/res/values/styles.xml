@@ -1,0 +1,91 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--<item name="coordinatorLayoutStyle"></item>-->
+    </style>
+
+   <!-- <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />-->
+
+    <style name="AppTheme.Drawer" >
+        <!--<item name="android:textSize">16sp</item>-->
+        <item name="android:listDivider">@color/white</item>
+    </style>
+
+    <style name="activity" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">#ff333333</item>
+        <item name="android:background">#ffffffff</item>
+        <item name="android:paddingBottom">5.0dip</item>
+    </style>
+
+    <style name="labels" parent="@style/bluebuttons">
+        <item name="android:padding">5.0dip</item>
+    </style>
+
+    <style name="topbar" parent="@style/AppTheme">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:padding">5.0dip</item>
+    </style>
+
+    <style name="elements" parent="@style/AppTheme">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textColorHint">@color/colorPrimary</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">0.0dip</item>
+        <item name="android:layout_marginTop">0.0dip</item>
+        <item name="android:layout_marginRight">0.0dip</item>
+    </style>
+
+    <style name="bluebuttons" parent="@style/AppTheme">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:background">@drawable/blue_background_button_statelist</item>
+        <item name="android:layout_marginLeft">3.0dip</item>
+        <item name="android:layout_marginTop">3.0dip</item>
+        <item name="android:layout_marginRight">3.0dip</item>
+    </style>
+    <style name="buttons" parent="@style/bluebuttons">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5.0dip</item>
+        <item name="android:layout_marginTop">15.0dip</item>
+        <item name="android:layout_marginRight">5.0dip</item>
+    </style>
+
+    <style name="input_labels" parent="@style/elements">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="listview_item_values">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MyCustomTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+
+
+</resources>

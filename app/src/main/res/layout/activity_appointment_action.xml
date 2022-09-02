@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AppointmentAction">
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:text="Cancel Journey Plan"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btnFollowup"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:text="Outlet Location"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnCoordinate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Geo - locate "
+
+        android:textAllCaps="false"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/btnCheckin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/colorPrimaryDark"
+        android:text="Collage"
+        android:textAllCaps="true"
+        android:textColor="#fff" />
+
+<TextView
+    android:visibility="gone"
+    android:id="@+id/batteryLevel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text=""/>
+
+
+
+    <TextView
+        android:id="@+id/mylocation_latitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Latitude"
+        android:textColor="#333"
+        android:textSize="18dp"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/mylocation_longitude"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Longitude"
+        android:textColor="#333"
+        android:textSize="18dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:visibility="visible"
+        android:id="@+id/mytxtAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#0178c6"
+        android:gravity="center"
+        android:text="Address"
+        />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/txtId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="id"
+        />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/txtoutId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="outlet id"
+        />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/currentDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="current date"
+        />
+
+
+
+
+
+
+
+    <!-- THE GPS LOCATION LAYOUT BLOCK................START-->
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/frame">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="107dp">
+
+            <Button
+                android:id="@+id/btn_start_location_updates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginRight="20dp"
+
+                android:layout_marginTop="10dp"
+                android:text="@string/start_updates" />
+
+            <Button
+                android:id="@+id/btn_stop_location_updates"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+
+                android:enabled="false"
+                android:text="@string/stop_updates" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_get_last_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/get_last_location"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="59dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Location updates will be received only when app is foreground"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="156dp" />
+
+        <TextView
+            android:id="@+id/location_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Latitude"
+            android:textColor="#333"
+            android:textSize="18dp"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="315dp" />
+
+        <TextView
+            android:id="@+id/location_longitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Longitude"
+            android:textColor="#333"
+            android:textSize="18dp"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="315dp" />
+
+
+        <TextView
+            android:id="@+id/updated_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11dp"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="315dp" />
+
+        <TextView
+            android:id="@+id/txtAddress"
+            android:text="Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+    <!-- THE GPS LOCATION LAYOUT BLOCK................END-->
+
+
+
+
+
+
+</LinearLayout>

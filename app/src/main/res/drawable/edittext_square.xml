@@ -1,0 +1,14 @@
+<shape xmlns:andoroid="http://schemas.android.com/apk/res/android"
+    andoroid:shape="rectangle">
+
+    <corners andoroid:bottomRightRadius="0dp"
+        andoroid:bottomLeftRadius="0dp"
+        andoroid:topLeftRadius="0dp"
+        andoroid:topRightRadius="0dp" />
+    <solid andoroid:color="#01375B"/>
+
+    <stroke
+        andoroid:width="1dp"
+        andoroid:color="#0D426A"/>
+
+</shape>

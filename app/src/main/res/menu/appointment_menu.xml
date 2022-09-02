@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu_appointment_add"
+        android:title="Sync"
+        app:showAsAction="always"
+        android:visible="false"
+        android:icon="@drawable/ic_add_location"></item>
+    <item
+        android:id="@+id/menu_appoint_sync"
+        android:title="Sync"
+        android:icon="@drawable/ic_sync"
+        android:visible="true"
+        app:showAsAction="always" />
+</menu>

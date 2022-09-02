@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/relativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="#DDDDDD"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+        <TableRow android:padding="5dp">
+            <TextView android:id="@+id/clientLabel"
+                android:text="Outlet"
+                style="@style/input_labels" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/client"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow android:padding="5dp">
+            <TextView
+                android:id="@+id/productNameLabel"
+                android:text="Category Name"
+                style="@style/input_labels" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/product"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow android:padding="5dp">
+            <TextView
+                android:id="@+id/productCodeLabel"
+                android:text="Total Facings"
+                style="@style/input_labels" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/productCode"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow android:padding="5dp">
+            <TextView
+                android:id="@+id/batchNoLabel"
+                android:text="Actual Facings"
+                style="@style/input_labels" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/batchNo"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow android:padding="5dp">
+            <TextView
+                android:id="@+id/expiryDateLabel"
+                android:text="Date"
+                style="@style/input_labels" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@id/expiryDate"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow android:padding="5dp">
+            <TextView
+                android:id="@+id/quantityLabel"
+                android:text="Checklist"
+                style="@style/input_labels" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/quantity"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow
+            android:visibility="gone"
+            android:id="@+id/tableQuantity"
+            android:padding="5dp">
+            <TextView
+                android:text="Current Quantity"
+                style="@style/input_labels" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/currentQuantity"
+                style="@style/listview_item_values" />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

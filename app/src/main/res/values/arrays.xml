@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="client_sizes">
+        <item>Size</item>
+        <item>Individual</item>
+        <item>SME</item>
+        <item>Small Business</item>
+        <item>Corporate</item>
+        <item>Hypermarket</item>
+        <item>Supermarket</item>
+        <item>Mini Marts</item>
+        <item>Suppretes</item>
+    </string-array>
+    <string-array name="client_types">
+        <item>Client Type</item>
+        <item>Prospect</item>
+        <item>Lead</item>
+        <item>Client</item>
+    </string-array>
+    <string-array name="countries">
+        <item>Country</item>
+        <item>Kenya</item>
+        <item>Uganda</item>
+        <item>Tanzania</item>
+        <item>Rwanda</item>
+        <item>Ethiopia</item>
+        <item>South Sudan</item>
+        <item>Burundi</item>
+    </string-array>
+    <string-array name="effect_on_sales">
+        <item>Decreased sales</item>
+        <item>No effect on sales</item>
+        <item>Increased sales</item>
+    </string-array>
+    <string-array name="logsfilters">
+        <item>Show</item>
+        <item>All</item>
+        <item>Incomplete</item>
+        <item>Complete</item>
+    </string-array>
+    <string-array name="opportunitystatus">
+        <item>Status</item>
+        <item>Open</item>
+        <item>Closed Won</item>
+        <item>Closed Lost</item>
+    </string-array>
+    <string-array name="ordersalemodes">
+        <item>Sale Mode</item>
+        <item>Cash</item>
+        <item>Credit</item>
+        <item>Consignment</item>
+        <item>Credit Card</item>
+        <item>Mobile Money</item>
+    </string-array>
+    <string-array name="roundtrip">
+        <item>Round Trip</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="sexes">
+        <item>Sex</item>
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+    <string-array name="weekdays">
+        <item>Day</item>
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+</resources>

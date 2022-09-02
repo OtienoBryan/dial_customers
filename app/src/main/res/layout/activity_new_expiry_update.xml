@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        style="@style/activity">
+        <LinearLayout android:orientation="vertical"
+            android:id="@+id/topbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/topbar">
+            <TextView
+                android:id="@+id/appstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Short Expiry Report for :" style="@style/labels" />
+            <TextView
+                android:id="@+id/appmisc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/labels" />
+
+        </LinearLayout>
+
+        <!--<EditText-->
+        <!--android:id="@+id/productName"-->
+        <!--android:hint="Product Name*"-->
+        <!--android:layout_below="@id/topbar"-->
+        <!--android:enabled="false"-->
+        <!--style="@style/elements" />-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/productName"
+                android:hint="Brand"
+                android:enabled="false"
+                style="@style/elements"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/manu_date"
+                android:hint="Manufacture Date"
+                android:enabled="false"
+                style="@style/elements"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/expiryDate"
+                android:hint="End Date"
+                android:enabled="false"
+                style="@style/elements"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@id/batchNo"
+                android:hint="Batch Number"
+                android:enabled="false"
+                android:textSize="18sp"
+                style="@style/elements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/quantity"
+                android:hint="Quantity"
+                android:inputType="numberDecimal"
+                android:enabled="false"
+                android:textSize="18sp"
+                style="@style/elements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtExpiryQuantity"
+                android:hint="Update Quantity"
+                style="@style/elements"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:gravity="top"
+                android:id="@+id/comments"
+                android:minLines="7"
+                android:hint="Recommendation"
+                style="@style/elements"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--<EditText-->
+        <!--android:id="@+id/productCode"-->
+        <!--android:hint="Product Code"-->
+        <!--android:layout_below="@id/productName"-->
+        <!--android:enabled="false"-->
+        <!--style="@style/elements" />-->
+        <!--<EditText -->
+        <!--android:id="@id/batchNo"-->
+        <!--android:hint="Batch No."-->
+        <!--android:layout_below="@id/productCode"-->
+        <!--android:enabled="false"-->
+        <!--style="@style/elements" />-->
+        <!--<EditText-->
+        <!--android:id="@+id/quantity"-->
+        <!--android:hint="Quantity"-->
+        <!--android:layout_below="@id/batchNo"-->
+        <!--android:inputType="numberDecimal"-->
+        <!--style="@style/elements" />-->
+        <!--<EditText-->
+        <!--android:id="@+id/expiryDate"-->
+        <!--android:hint="Expiry Date"-->
+        <!--android:layout_below="@id/quantity"-->
+        <!--android:enabled="false"-->
+        <!--style="@style/elements" />-->
+        <!--<EditText-->
+        <!--android:gravity="top"-->
+        <!--android:id="@+id/comments"-->
+        <!--android:layout_height="150.0dip"-->
+        <!--android:hint="Comments"-->
+        <!--android:layout_below="@id/expiryDate"-->
+        <!--style="@style/elements" />-->
+        <!--<Button-->
+        <!--android:id="@+id/saveClient"-->
+        <!--android:text="Update Report Status"-->
+        <!--android:layout_below="@+id/comments"-->
+        <!--style="@style/buttons" />-->
+        <Button
+            android:id="@+id/btnUpdateProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/comments"
+            android:text="Update Expiry"
+            style="@style/buttons"/>
+
+    </LinearLayout>
+</ScrollView>

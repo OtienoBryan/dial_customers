@@ -1,0 +1,256 @@
+<resources>
+    <string name="app_name">Dial A Drink</string>
+    <string name="start_updates">START GPS</string>
+    <string name="stop_updates">STOP GPS</string>
+    <string name="get_last_location">GET LAST LOCATION</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- OTHER CUSTOM STRINGS-->
+
+
+    <string name="abc_action_bar_home_description">Navigate home</string>
+    <string name="abc_action_bar_up_description">Navigate up</string>
+    <string name="abc_action_menu_overflow_description">More options</string>
+    <string name="abc_action_mode_done">Done</string>
+    <string name="abc_activity_chooser_view_see_all">See all</string>
+    <string name="abc_activitychooserview_choose_application">Choose an app</string>
+    <string name="abc_capital_off">OFF</string>
+    <string name="abc_capital_on">ON</string>
+    <string name="abc_font_family_body_1_material">sans-serif</string>
+    <string name="abc_font_family_body_2_material">sans-serif-medium</string>
+    <string name="abc_font_family_button_material">sans-serif-medium</string>
+    <string name="abc_font_family_caption_material">sans-serif</string>
+    <string name="abc_font_family_display_1_material">sans-serif</string>
+    <string name="abc_font_family_display_2_material">sans-serif</string>
+    <string name="abc_font_family_display_3_material">sans-serif</string>
+    <string name="abc_font_family_display_4_material">sans-serif-light</string>
+    <string name="abc_font_family_headline_material">sans-serif</string>
+    <string name="abc_font_family_menu_material">sans-serif</string>
+    <string name="abc_font_family_subhead_material">sans-serif</string>
+    <string name="abc_font_family_title_material">sans-serif-medium</string>
+    <string name="abc_search_hint">Search…</string>
+    <string name="abc_searchview_description_clear">Clear query</string>
+    <string name="abc_searchview_description_query">Search query</string>
+    <string name="abc_searchview_description_search">Search</string>
+    <string name="abc_searchview_description_submit">Submit query</string>
+    <string name="abc_searchview_description_voice">Voice search</string>
+    <string name="abc_shareactionprovider_share_with">Share with</string>
+    <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
+    <string name="abc_toolbar_collapse_description">Collapse</string>
+    <string name="action_settings">Profile Settings</string>
+    <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="bottom_sheet_behavior">android.support.design.widget.BottomSheetBehavior</string>
+    <string name="character_counter_pattern">%1$d / %2$d</string>
+    <string name="com.crashlytics.android.build_id">8c5f429c-03e8-4f9e-a519-0f067e94315f</string>
+    <string name="common_google_play_services_enable_button">Enable</string>
+    <string name="common_google_play_services_enable_text">"%1$s won't work unless you enable Google Play services."</string>
+    <string name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string name="common_google_play_services_install_button">Install</string>
+    <string name="common_google_play_services_install_text">"%1$s won't run without Google Play services, which are missing from your device."</string>
+    <string name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play services availability</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
+    <string name="common_google_play_services_unknown_issue">%1$s is having trouble with Google Play services. Please try again.</string>
+    <string name="common_google_play_services_unsupported_text">"%1$s won't run without Google Play services, which are not supported by your device."</string>
+    <string name="common_google_play_services_update_button">Update</string>
+    <string name="common_google_play_services_update_text">"%1$s won't run unless you update Google Play services."</string>
+    <string name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text">"%1$s won't run without Google Play services, which are currently updating."</string>
+    <string name="common_google_play_services_wear_update_text">New version of Google Play services needed. It will update itself shortly.</string>
+    <string name="common_open_on_phone">Open on phone</string>
+    <string name="common_signin_button_text">Sign in</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="competitor_activity_tracker.competitor_brand">Competitor Brand</string>
+    <string name="competitor_activity_tracker.effect_on_sales">Effect On Sales</string>
+    <string name="competitor_activity_tracker.end_date">End Date</string>
+    <string name="competitor_activity_tracker.notes_mechanic">Notes/Mechanic</string>
+    <string name="competitor_activity_tracker.outlet">Outlet</string>
+    <string name="competitor_activity_tracker.photo">Photo</string>
+    <string name="competitor_activity_tracker.product_category">Product Category</string>
+    <string name="competitor_activity_tracker.promotion">Promotion</string>
+    <string name="competitor_activity_tracker.quantity_pcs">Quantity(Pcs)</string>
+    <string name="competitor_activity_tracker.select_brand">Select brand</string>
+    <string name="competitor_activity_tracker.select_client">Select client</string>
+    <string name="competitor_activity_tracker.select_product_category">Select product category</string>
+    <string name="competitor_activity_tracker.select_promotion">Select promotion</string>
+    <string name="competitor_activity_tracker.start_date">Start Date</string>
+    <string name="date_picker_day_of_week_typeface">sans-serif-medium</string>
+    <string name="date_picker_day_typeface">sans-serif-medium</string>
+    <string name="date_picker_month_typeface">sans-serif-medium</string>
+    <string name="date_picker_next_month_button">Next month</string>
+    <string name="date_picker_prev_month_button">Previous month</string>
+    <string name="datetime_EMMMMdy">EEE, MMMM d, y</string>
+    <string name="datetime_EMMMd">EEE, MMM d</string>
+    <string name="datetime_Hm">HH:mm</string>
+    <string name="datetime_MMMMy">MMMM y</string>
+    <string name="datetime_hm">h:mm a</string>
+    <string name="device_charging_via">Charging Via</string>
+    <string name="device_type">Device Type</string>
+    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
+    <string name="followup_name">FollowUps</string>
+    <string name="google_maps_key">AIzaSyDsjgWOduwtPpgwLFOfFeHanb_bZuYOz1k</string>
+    <string name="google_maps_prod_key">AIzaSyAH_Eg0i-wDFSkw7ybOxfbLfam5lFpoYNo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="hour_picker_description">Hours circular slider</string>
+    <string name="large_text">"Material is the metaphor.
+
+ A material metaphor is the unifying theory of a rationalized space and a system of motion. The material is grounded in tactile reality, inspired by the study of paper and ink, yet  technologically advanced and open to imagination and magic.
+ Surfaces and edges of the material provide visual cues that are grounded in reality. The  use of familiar tactile attributes helps users quickly understand affordances. Yet the  flexibility of the material creates new affordances that supercede those in the physical  world, without breaking the rules of physics.
+ The fundamentals of light, surface, and movement are key to conveying how objects move,  interact, and exist in space and in relation to each other. Realistic lighting shows  seams, divides space, and indicates moving parts.
+
+ Bold, graphic, intentional.
+
+ The foundational elements of print based design typography, grids, space, scale, color,  and use of imagery guide visual treatments. These elements do far more than please the  eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge  imagery, large scale typography, and intentional white space create a bold and graphic  interface that immerse the user in the experience.
+ An emphasis on user actions makes core functionality immediately apparent and provides  waypoints for the user.
+
+ Motion provides meaning.
+
+ Motion respects and reinforces the user as the prime mover. Primary user actions are  inflection points that initiate motion, transforming the whole design.
+ All action takes place in a single environment. Objects are presented to the user without  breaking the continuity of experience even as they transform and reorganize.
+ Motion is meaningful and appropriate, serving to focus attention and maintain continuity.  Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.
+
+ 3D world.
+
+ The material environment is a 3D space, which means all objects have x, y, and z  dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the  positive z-axis extending towards the viewer. Every sheet of material occupies a single  position along the z-axis and has a standard 1dp thickness.
+ On the web, the z-axis is used for layering and not for perspective. The 3D world is  emulated by manipulating the y-axis.
+
+ Light and shadow.
+
+ Within the material environment, virtual lights illuminate the scene. Key lights create  directional shadows, while ambient light creates soft shadows from all angles.
+ Shadows in the material environment are cast by these two light sources. In Android  development, shadows occur when light sources are blocked by sheets of material at  various positions along the z-axis. On the web, shadows are depicted by manipulating the  y-axis only. The following example shows the card with a height of 6dp.
+
+ Resting elevation.
+
+ All material objects, regardless of size, have a resting elevation, or default elevation  that does not change. If an object changes elevation, it should return to its resting  elevation as soon as possible.
+
+ Component elevations.
+
+ The resting elevation for a component type is consistent across apps (e.g., FAB elevation  does not vary from 6dp in one app to 16dp in another app).
+ Components may have different resting elevations across platforms, depending on the depth  of the environment (e.g., TV has a greater depth than mobile or desktop).
+
+ Responsive elevation and dynamic elevation offsets.
+
+ Some component types have responsive elevation, meaning they change elevation in response  to user input (e.g., normal, focused, and pressed) or system events. These elevation  changes are consistently implemented using dynamic elevation offsets.
+ Dynamic elevation offsets are the goal elevation that a component moves towards, relative  to the component’s resting state. They ensure that elevation changes are consistent  across actions and component types. For example, all components that lift on press have  the same elevation change relative to their resting elevation.
+ Once the input event is completed or cancelled, the component will return to its resting  elevation.
+
+ Avoiding elevation interference.
+
+ Components with responsive elevations may encounter other components as they move between  their resting elevations and dynamic elevation offsets. Because material cannot pass  through other material, components avoid interfering with one another any number of ways,  whether on a per component basis or using the entire app layout.
+ On a component level, components can move or be removed before they cause interference.  For example, a floating action button (FAB) can disappear or move off screen before a  user picks up a card, or it can move if a snackbar appears.
+ On the layout level, design your app layout to minimize opportunities for interference.  For example, position the FAB to one side of stream of a cards so the FAB won’t interfere  when a user tries to pick up one of cards.
+
+"</string>
+    <string name="logout">Log Out</string>
+    <string name="minute_picker_description">Minutes circular slider</string>
+    <string name="network_type">Network Type</string>
+    <string name="number_picker_decrement_button">Decrease</string>
+    <string name="number_picker_increment_button">Increase</string>
+    <string name="orientation">Orientation</string>
+    <string name="password_toggle_content_description">Toggle password visibility</string>
+    <string name="path_password_eye">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
+    <string name="path_password_eye_mask_strike_through">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
+    <string name="path_password_eye_mask_visible">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
+    <string name="path_password_strike_through">M3.27,4.27 L19.74,20.74</string>
+    <string name="phone_type">Phone Type</string>
+    <string name="radial_numbers_typeface">sans-serif</string>
+    <string name="ringer_mode">Ringer Mode</string>
+    <string name="s_preferences">com.efisales.android.app</string>
+    <string name="sans_serif">sans-serif</string>
+    <string name="search_menu_title">Search</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="select_day">Select month and day</string>
+    <string name="select_hours">Select hours</string>
+    <string name="select_minutes">Select minutes</string>
+    <string name="select_year">Select year</string>
+    <string name="selling_price">Selling price</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="task_followup">Followup Setup</string>
+    <string name="task_name">Task</string>
+    <string name="time_picker_decrement_hour_button">Decrease hour</string>
+    <string name="time_picker_decrement_minute_button">Decrease minute</string>
+    <string name="time_picker_decrement_set_am_button">Set AM</string>
+    <string name="time_picker_header_text">Set time</string>
+    <string name="time_picker_hour_label">hour</string>
+    <string name="time_picker_increment_hour_button">Increase hour</string>
+    <string name="time_picker_increment_minute_button">Increase minute</string>
+    <string name="time_picker_increment_set_pm_button">Set PM</string>
+    <string name="time_picker_input_error">Enter a valid time</string>
+    <string name="time_picker_minute_label">minute</string>
+    <string name="time_picker_prompt_label">Type in time</string>
+    <string name="time_picker_radial_mode_description">Switch to clock mode for the time input.</string>
+    <string name="time_picker_text_input_mode_description">Switch to text input mode for the time input.</string>
+    <string name="time_placeholder">--</string>
+    <string name="title_activity_appointment_details">Appointment Details</string>
+    <string name="title_activity_appointment_directions">Appointment Directions</string>
+    <string name="title_activity_appointment_setup">Set Appointment</string>
+    <string name="title_activity_appointments">My Appointments</string>
+    <string name="title_activity_cart">Cart</string>
+    <string name="title_activity_cart_product">Product Details</string>
+    <string name="title_activity_client">Clients</string>
+    <string name="title_activity_client_contact">Client Contacts</string>
+    <string name="title_activity_client_detail">Client Options</string>
+    <string name="title_activity_client_location">Client Location</string>
+    <string name="title_activity_client_order">ClientOrderActivity</string>
+    <string name="title_activity_client_order_activity_view">Client Orders</string>
+    <string name="title_activity_client_order_view_datail">Order Details</string>
+    <string name="title_activity_client_report">Client Report</string>
+    <string name="title_activity_cost_manager">Cost Management</string>
+    <string name="title_activity_diary">Diary</string>
+    <string name="title_activity_efficiency">Performance Trend</string>
+    <string name="title_activity_final_reading_mileage_log">Complete Trip</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_activity_internet_disconection">Internet Down</string>
+    <string name="title_activity_lead_log">Lead Logging</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_maps">My Maps</string>
+    <string name="title_activity_merchandising_detail">Merchandising Details</string>
+    <string name="title_activity_mileage_log_details">Trip Details</string>
+    <string name="title_activity_mileage_logs_scan">Mileage Log Scans</string>
+    <string name="title_activity_my_clients_locations">My Clients Locations</string>
+    <string name="title_activity_my_route_plan">My Route Plan</string>
+    <string name="title_activity_new_client_contact">New Client Contact</string>
+    <string name="title_activity_new_client_opportunity">NewClientOpportunityActivity</string>
+    <string name="title_activity_new_sales_rep_expense">New SalesRep Expense</string>
+    <string name="title_activity_new_sales_rep_mileage_log">New Mileage Log</string>
+    <string name="title_activity_notification">Notifications</string>
+    <string name="title_activity_opportunities">Opportunities</string>
+    <string name="title_activity_opportunity">Client Opportunities</string>
+    <string name="title_activity_opportunity_detail">Opportunity Detail</string>
+    <string name="title_activity_opportunity_history">Opportunity History</string>
+    <string name="title_activity_opportunity_history_detail">Opportunity Details</string>
+    <string name="title_activity_opportunity_matrix">My Pipeline</string>
+    <string name="title_activity_order_detail">Order Details</string>
+    <string name="title_activity_perfromance">My Perfromance</string>
+    <string name="title_activity_product_detail">Add Product To Cart</string>
+    <string name="title_activity_sales">Sales</string>
+    <string name="title_activity_sales_rep_expenses">My Expenses</string>
+    <string name="title_activity_sales_rep_mileage_logs">Mileage Logs</string>
+    <string name="title_activity_sales_stage_opportunities">Opportunities At Stage</string>
+    <string name="title_activity_sales_trend">Sales Trend</string>
+    <string name="title_activity_scrolling">My Clients</string>
+    <string name="title_activity_stock_query">Stock Query</string>
+    <string name="title_activity_survey_clients">Select Client</string>
+    <string name="title_activity_targets">Targets</string>
+    <string name="title_activity_task">My Tasks</string>
+    <string name="title_activity_task_detail">Diary</string>
+    <string name="title_activity_test">Map</string>
+    <string name="title_activity_update_opportunity_status">Update Opportunity Status</string>
+    <string name="title_activity_upload">Upload File</string>
+    <string name="title_activity_upload_test">Upload Testing</string>
+    <string name="title_activity_vicinity_clients">Clients Around</string>
+    <string name="share_of_shelf">Share Of Shelf</string>
+    <string name="listing">Availability</string>
+    <string name="asset_tracking">Asset Tracking</string>
+    <string name="prices_tracker">Prices Tracker</string>
+    <string name="check_out">Check Out</string>
+    <string name="journey_plan">Home</string>
+
+
+</resources>

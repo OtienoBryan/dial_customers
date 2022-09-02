@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1057929810005",
+    "firebase_url": "https://topline-hub.firebaseio.com",
+    "project_id": "topline-hub",
+    "storage_bucket": "topline-hub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057929810005:android:edba303956df7ded",
+        "android_client_info": {
+			"package_name": "com.litchman.dialcustomer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057929810005-mkgig6tqdrj19o33q18dg1l9vu4mbvod.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWWu16a-pzkFd_gDlOUVxkUBMbYomRx24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057929810005-mkgig6tqdrj19o33q18dg1l9vu4mbvod.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

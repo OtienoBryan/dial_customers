@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#fff"
+        android:layout_marginTop="8dp">
+
+
+        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardElevation="26dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp">
+
+
+                <TextView
+                    android:id="@+id/focusbrand"
+                    style="@style/elements"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Product"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <!--<TextView
+                    android:id="@+id/textViewNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="richard"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />-->
+                <RadioGroup
+                    android:id="@+id/rgFocus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:id="@+id/checkBoxAvail"
+                        android:layout_width="wrap_content"
+                        android:text="Available"
+                        style="@style/elements"
+                        android:visibility="gone"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_height="wrap_content" />
+                    <CheckBox
+                        android:id="@+id/checkBoxNot"
+                        android:layout_width="0dp"
+                        android:text="Not Available"
+                        android:visibility="gone"
+                        style="@style/elements"
+                        android:paddingBottom="10dp"
+                        android:layout_weight="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/rdAvailable"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Available"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:textSize="16sp"
+                        android:visibility="gone"/>
+                    <RadioButton
+                        android:id="@+id/rdNotAvailable"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Not Available"
+                        android:layout_height="wrap_content"
+                        android:padding="12dp"
+                        android:textSize="16sp"
+                        android:layout_marginStart="15dp"
+                        android:visibility="gone"/>
+                    <CheckBox
+                        android:id="@+id/checkBoxNotStock"
+                        android:layout_width="0dp"
+                        android:paddingBottom="10dp"
+                        android:text="Not Stocked"
+                        style="@style/elements"
+                        android:visibility="gone"
+                        android:layout_weight="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_height="wrap_content" />
+                    <CheckBox
+                        android:id="@+id/checkBoxNotList"
+                        android:layout_width="0dp"
+                        android:paddingBottom="10dp"
+                        android:text="Not Listed"
+                        style="@style/elements"
+                        android:visibility="gone"
+                        android:layout_weight="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_height="wrap_content" />
+                    <RadioButton
+                        android:id="@+id/rdNotStocked"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Not Stocked"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+                    <RadioButton
+                        android:id="@+id/rbNotListed"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Not Listed"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+                </RadioGroup>
+                <!--<CheckBox-->
+                    <!--android:id="@+id/checkBoxAvail"-->
+                    <!--style="@style/elements"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--android:layout_marginEnd="8dp"-->
+                    <!--android:layout_marginLeft="32dp"-->
+                    <!--android:layout_marginRight="8dp"-->
+                    <!--android:layout_marginStart="32dp"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:padding="10dp"-->
+                    <!--android:text="Available"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toStartOf="@+id/checkBoxNot"-->
+                    <!--app:layout_constraintHorizontal_bias="0.048"-->
+                    <!--app:layout_constraintStart_toStartOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/focusbrand" />-->
+
+                <!--<CheckBox-->
+                    <!--android:id="@+id/checkBoxNot"-->
+                    <!--style="@style/elements"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--android:layout_marginEnd="32dp"-->
+                    <!--android:layout_marginRight="32dp"-->
+                    <!--android:layout_marginTop="8dp"-->
+                    <!--android:padding="10dp"-->
+                    <!--android:text="Not Available"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/focusbrand"-->
+                    <!--app:layout_constraintVertical_bias="0.0" />-->
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

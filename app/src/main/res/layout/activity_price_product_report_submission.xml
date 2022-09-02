@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:name="com.efisales.apps.androidapp.MerchandisingDetailFragment"
+        android:id="@id/fragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        style="@style/activity">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@id/topbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            style="@style/topbar">
+            <TextView
+                android:id="@+id/clientname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Provide prices for the product"
+                style="@style/labels" />
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/labels" />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/occupanciesLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Product Prices"
+            android:layout_below="@id/topbar"
+            style="@style/input_labels" />
+        <EditText
+            android:layout_marginTop="25dp"
+            android:id="@+id/ourProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16.0sp"
+            android:paddingBottom="15.0dip"
+            android:textColor="@color/black"
+            android:text=""
+            android:inputType="number"
+            android:layout_below="@id/topbar"
+            style="@style/input_labels"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/product_prices_container"
+            android:layout_marginTop="50dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/occupanciesLabel">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/narativelabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Notes"
+            android:layout_below="@+id/product_prices_container"
+            style="@style/input_labels" />
+        <EditText
+            android:gravity="top"
+            android:id="@+id/notes"
+            android:layout_width="fill_parent"
+            android:layout_height="100.0dip"
+            android:layout_below="@id/narativelabel"
+            style="@style/elements" />
+
+        <Button
+            android:id="@+id/submitProduct_priceReport"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Report"
+            android:layout_below="@+id/notes"
+            style="@style/bluebuttons" />
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FragmentTeamleaderObjective">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:padding="3dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="5dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:text="My  Weekly Action Log" />-->
+
+            <EditText
+                android:id="@+id/edtObjective"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Enter action log"
+                android:background="@drawable/edittext_normal_border"
+                android:ems="10"
+                android:focusable="auto"
+                android:inputType="text" />
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:textColor="@color/black"
+                    android:text="Did you achieve?" />
+
+                <Spinner
+                    android:id="@+id/spnObjective"
+                    android:padding="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:text="If Not achieved, What was the challenge?" />
+
+            <EditText
+                android:id="@+id/edtObjectiveChallenge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:hint="Enter challenge"
+                android:background="@drawable/edittext_normal_border"
+                android:ems="10"
+                android:minLines="5"
+                android:maxLines="10"
+                android:gravity="top"
+                android:inputType="textCapSentences|textNoSuggestions|textMultiLine"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:text="What are you planning to do next?" />
+
+            <EditText
+                android:id="@+id/edtObjectivePlanning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dp"
+                android:hint="Enter plan"
+                android:background="@drawable/edittext_normal_border"
+                android:ems="10"
+                android:focusable="auto"
+                android:minLines="5"
+                android:maxLines="10"
+                android:gravity="top"
+                android:inputType="textCapSentences|textNoSuggestions|textMultiLine" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:text="Support Required" />
+
+            <EditText
+                android:id="@+id/edtObjectiveReco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter support required"
+                android:background="@drawable/edittext_normal_border"
+                android:ems="10"
+                android:focusable="auto"
+                android:minLines="5"
+                android:maxLines="10"
+                android:gravity="top"
+                android:inputType="textCapSentences|textNoSuggestions|textMultiLine" />
+
+
+            <Button
+                android:id="@+id/btnObjective"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:background="@color/colorPrimary"
+                android:layout_height="wrap_content" />
+
+<!--            <Button-->
+<!--                android:id="@+id/btnTeamleaderCheckOut"-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/container"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:background="#7C0A02"-->
+<!--                android:text="Check Out"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:textColor="#fff" />-->
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

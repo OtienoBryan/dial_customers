@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/linearLayout"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:background="@color/grey"
+    android:layout_margin="5dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/lab2"
+        style="@style/input_labels"
+        android:paddingStart="10dp"
+        android:text="Product"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@id/productName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingBottom="15.0dip"
+        android:text="Product Name"
+        android:textColor="@color/black"
+        android:textSize="18.0sp" />
+
+    <TextView
+        android:textSize="16.0sp"
+        android:textColor="@color/black"
+        android:id="@id/productCode"
+        android:paddingBottom="15.0dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product code"
+        android:visibility="gone"/>
+
+    <TextView
+        android:textSize="16.0sp"
+        android:textColor="@color/black"
+        android:id="@id/productSku"
+        android:paddingBottom="15.0dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product sku"
+        android:visibility="gone"/>
+</LinearLayout>

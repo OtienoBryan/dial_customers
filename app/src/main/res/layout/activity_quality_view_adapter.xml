@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="#DDDDDD"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1">
+        <TableRow android:padding="5dp">
+            <TextView android:id="@+id/clientLabel"
+                android:text="Outlet"
+                style="@style/input_labels"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/client"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow android:padding="5dp">
+            <TextView
+                android:id="@+id/productNameLabel"
+                android:text="Brand"
+                style="@style/input_labels"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/product"
+                style="@style/listview_item_values" />
+        </TableRow>
+
+        <!--        <TableRow-->
+        <!--            android:padding="5dp"-->
+        <!--            tools:visibility="gone">-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/productCodeLabel"-->
+        <!--                style="@style/input_labels"-->
+        <!--                android:text="Product Code"-->
+        <!--                tools:visibility="gone" />-->
+
+        <!--            <TextView-->
+        <!--                android:id="@+id/productCode"-->
+        <!--                style="@style/listview_item_values"-->
+        <!--                android:layout_marginLeft="5dp"-->
+        <!--                tools:visibility="gone" />-->
+        <!--        </TableRow>-->
+        <!--        <TableRow android:padding="5dp">-->
+        <!--            <TextView-->
+        <!--                android:id="@+id/batchNoLabel"-->
+        <!--                android:text="Batch No."-->
+        <!--                style="@style/input_labels" />-->
+        <!--            <TextView-->
+        <!--                android:layout_marginLeft="5dp"-->
+        <!--                android:id="@+id/batchNo"-->
+        <!--                style="@style/listview_item_values" />-->
+        <!--        </TableRow>-->
+        <TableRow android:padding="5dp">
+            <TextView
+                android:id="@+id/expiryDateLabel"
+                android:text="Batch No."
+                style="@style/input_labels"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@id/batchNo"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow android:padding="5dp">
+            <TextView
+                android:id="@+id/quantityLabel"
+                android:text="Issue"
+                style="@style/input_labels"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/issue"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow android:padding="5dp">
+            <TextView
+                android:id="@+id/quantityLabeld"
+                android:text="Quantity"
+                style="@style/input_labels"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/quantity"
+                style="@style/listview_item_values" />
+        </TableRow>
+        <TableRow
+            android:id="@+id/tableQuantity"
+            android:padding="5dp">
+            <TextView
+                android:text="Date Submitted"
+                android:textStyle="bold"
+                style="@style/input_labels" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/date"
+                style="@style/listview_item_values" />
+        </TableRow>
+    </TableLayout>
+</RelativeLayout>

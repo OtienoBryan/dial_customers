@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        style="@style/activity">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/topbar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" style="@style/topbar">
+            <TextView
+                android:id="@+id/appstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sos Report for"
+                style="@style/labels" />
+            <TextView
+                android:id="@+id/appmisc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text=""
+                style="@style/labels" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/batchNo"
+            style="@style/elements"
+            android:layout_below="@id/topbar"
+            android:hint="Total Facings"
+            android:inputType="numberDecimal"
+            android:padding="20dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/quantity"
+            style="@style/elements"
+            android:layout_below="@id/batchNo"
+            android:hint="Actual Facings"
+            android:inputType="numberDecimal"
+            android:textStyle="bold"
+            android:padding="20dp"
+            android:textSize="18sp"/>
+
+
+
+        <EditText
+            android:id="@+id/comments"
+            style="@style/elements"
+            android:layout_height="150.0dip"
+            android:layout_below="@id/quantity"
+            android:gravity="top"
+            android:hint="Comments"
+            android:textStyle="bold"
+            android:padding="20dp"
+            android:textSize="18sp"/>
+        <Button
+            android:id="@+id/saveClient"
+            android:text="Submit Report"
+            android:layout_below="@id/comments"
+            android:onClick="submitSkuExpiryReport"
+            style="@style/buttons" />
+    </RelativeLayout>
+</ScrollView>

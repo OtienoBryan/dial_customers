@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:padding="3dp"
+    android:orientation="vertical">
+
+    <Button android:id="@+id/btnTeamleaderMpa"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Availability"
+        android:background="@drawable/btn_with_primary_border"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAllCaps="false"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
+    <Button android:id="@+id/btnTeamleaderNPL"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Market Share"
+        android:background="@drawable/btn_with_primary_border"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAllCaps="false"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        />
+    <Button android:id="@+id/btnTeamleaderVisibility"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Short Expiry"
+        android:background="@drawable/btn_with_primary_border"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAllCaps="false"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
+    <Button android:id="@+id/btnTeamleaderOrder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Asset Tracking"
+        android:background="@drawable/btn_with_primary_border"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAllCaps="false"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
+    <Button android:id="@+id/btnTeamleaderDelivery"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Delivery"
+        android:background="@drawable/btn_with_primary_border"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAllCaps="false"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/btnTeamleaderCheckOut"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/container"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        android:background="#7C0A02"
+        android:text="Check Out"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:visibility="invisible"/>
+
+</LinearLayout>

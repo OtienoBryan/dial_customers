@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.topline.hub">
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_policy"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".GiftPack"></activity>
+        <activity android:name=".NewArrivals" />
+        <activity android:name=".OfferFragment" />
+        <activity android:name=".Prescription" />
+        <activity android:name=".CompleteAdapter" />
+        <activity android:name=".Complete" />
+        <activity android:name=".Checkout" />
+        <activity android:name=".CartAdapter" />
+        <activity android:name=".Cart" />
+        <activity android:name=".MyCategoryAdapter" />
+        <activity android:name=".CategoryProducts" />
+        <activity android:name=".ProductAdapter" />
+        <activity android:name=".PayAdapter" />
+        <activity android:name=".Pay" />
+        <activity android:name=".Notice" />
+        <activity android:name=".Register" />
+        <activity android:name=".Testimonials" />
+        <activity android:name=".Privacy" />
+        <activity android:name=".Terms" />
+        <activity android:name=".AboutUs" />
+        <activity android:name=".MyRequests" />
+        <activity android:name=".NewSos" />
+        <activity android:name=".About" />
+        <activity android:name=".Life" />
+        <activity android:name=".Nutrition" />
+        <activity android:name=".Mental" />
+        <activity android:name=".NewProductCatAdapter" />
+        <activity android:name=".ProductCat" />
+        <activity android:name=".MyCompetitior" />
+        <activity android:name=".MarketViewAdapter" />
+        <activity android:name=".MyMarketActivity" />
+        <activity android:name=".MarketProductAdapter" />
+        <activity android:name=".MarketListActivity" />
+        <activity android:name=".MarketViewActivity" />
+        <activity android:name=".QualityViewAdapter" />
+        <activity android:name=".MyQualityActivity" />
+        <activity android:name=".QualityProductAdapter" />
+        <activity android:name=".QualityListActivity" />
+        <activity android:name=".QualityViewActivity" />
+        <activity android:name=".MyPriceActivity" />
+        <activity android:name=".PriceListActivity" />
+        <activity android:name=".PriceViewAdapter" />
+        <activity android:name=".PriceViewActivity" />
+        <activity android:name=".NewExpiryUpdate" />
+        <activity android:name=".ActivityTrackerAdapter" />
+        <activity android:name=".Fragment_Coaching" />
+        <activity android:name=".Coaching" />
+        <activity android:name=".MySosProductActivity" />
+        <activity android:name=".MySosProductAdapter" />
+        <activity android:name=".MySosListActivity" />
+        <activity android:name=".MySosViewAdapter" />
+        <activity android:name=".MySos" />
+        <activity android:name=".NewSosViewAdapter" />
+        <activity android:name=".NewSosProductAdapter" />
+        <activity android:name=".OutletMapsActivity" />
+        <activity android:name=".Outlet_Location" />
+        <activity android:name=".Outlet_visted" />
+        <activity android:name=".Outlet_Collage" />
+        <activity android:name=".ViewOutlet" />
+        <activity android:name=".FragmentTeamleaderObjective" />
+        <activity android:name=".MpaActivity" />
+        <activity android:name=".FragmentTeamleaderChecklist" />
+        <activity android:name=".TeamLeaderCollage" />
+        <activity android:name=".vo.ApprovalAppointmentsAdapter" />
+        <activity android:name=".ApprovalAppointment" />
+        <activity android:name=".ShareOfVisibilityReport" />
+        <activity android:name=".OrderAndSales" />
+        <activity android:name=".ShareOfVisibility" />
+        <activity android:name=".StockCount" />
+        <activity
+            android:name=".MainActivity"
+            android:label="Dial A Drink, Kenya" /> <!-- <activity android:name=".MainActivity"> -->
+        <!-- &lt;!&ndash; -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- &ndash;&gt; -->
+        <!-- </activity> -->
+        <receiver android:name=".NotificationReciever" />
+
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".services.MyFirebaseInstanceIdService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".services.MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".Outlets" />
+        <activity
+            android:name=".StockOut"
+            android:label="Out Of Stock Report"
+            android:screenOrientation="fullSensor" />
+        <activity android:name=".PromotionActivity" />
+        <activity android:name=".BidcoActivity" />
+        <activity
+            android:name=".MyExpiryProduct"
+            android:label="Product Expiry Reports" />
+        <activity
+            android:name=".ActivityTrackerView"
+            android:label="Activity Tracker" />
+        <activity
+            android:name=".OutletsVisited"
+            android:label="Visited Outlets" />
+        <activity android:name=".AppointmentsActivity" />
+        <activity android:name=".TasksActivity" />
+        <activity
+            android:name=".NewOutletActivity"
+            android:label="Register New Outlet"
+            android:screenOrientation="fullSensor" />
+        <activity
+            android:name=".ImageActivity"
+            android:label="Take Picture" />
+        <activity android:name=".AppointmentAction" />
+        <activity
+            android:name=".QuestionsActivity"
+            android:label="Collect Data Now">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <action android:name="android.intent.action.VIEW" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".FocusBrandsActivity" />
+        <activity android:name=".ProductCategoryActivity" />
+        <activity android:name=".TestActivity" />
+        <activity
+            android:name=".CompetitiveActivity"
+            android:label="Competitor Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AssetTrackerActivity"
+            android:label="Assets Tracking" />
+        <activity
+            android:name=".ExpiryProductViewActivity"
+            android:label="Short Expiry" />
+        <activity android:name=".ExpiryProductActivity" />
+        <activity android:name=".ExpiryProductUpdateActivity" />
+        <activity android:name=".ExpiryProductListActivity" />
+        <activity
+            android:name=".PosmDistributionActivity"
+            android:label="Distribute POSM" />
+        <activity
+            android:name=".PosmAllocationActivity"
+            android:label="Select POSM to Distribute" />
+        <activity android:name=".PriceProductSelectionActivity" />
+        <activity android:name=".PriceProductReportSubmissionActivity" />
+        <activity android:name=".PriceComplianceTrackerActivity" />
+        <activity android:name=".SosActivity" />
+        <activity android:name=".SosCategoryActivity" />
+    </application>
+
+</manifest>

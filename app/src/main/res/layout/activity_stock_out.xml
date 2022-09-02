@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.appcompat.widget.AppCompatButton android:id="@+id/submit_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Submit" android:layout_alignParentBottom="true" style="@style/bluebuttons" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/submit_button" android:layout_alignParentTop="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <!--<LinearLayout android:orientation="vertical" android:id="@+id/select_outlet" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Base.Widget.AppCompat.Spinner.Underlined">
+                <TextView android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/competitor_activity_tracker.outlet" />
+                <TextView android:textSize="16.0sp" android:id="@+id/outlet_name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/competitor_activity_tracker.select_client" style="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>-->
+
+            <LinearLayout android:orientation="vertical" android:id="@+id/select_competitor_brand" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:paddingTop="4.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Brand" />
+                <!--<TextView android:textSize="16.0sp" android:id="@+id/competitor_brand" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/competitor_activity_tracker.select_brand" style="@style/TextAppearance.AppCompat.Body1" />-->
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spPromotionBrand"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
+            </LinearLayout>
+
+<!--            <LinearLayout android:orientation="horizontal" android:paddingTop="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">-->
+<!--                <LinearLayout android:orientation="vertical" android:id="@+id/select_start_date" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/Base.Widget.AppCompat.Spinner.Underlined">-->
+<!--                    <TextView android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Kick Off Date" />-->
+<!--                    <TextView android:textSize="16.0sp" android:id="@+id/start_date" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextAppearance.AppCompat.Body1" />-->
+<!--                </LinearLayout>-->
+
+<!--            </LinearLayout>-->
+
+
+            <!--            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">-->
+            <!--                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Competitor Brand" />-->
+            <!--                <android.support.v7.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/brand" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />-->
+            <!--            </LinearLayout>-->
+
+
+            <LinearLayout android:orientation="vertical" android:id="@+id/select_product_category" android:layout_width="fill_parent" android:layout_height="wrap_content" android:visibility="gone" >
+                <TextView android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Brand Category" />
+                <!--<TextView android:textSize="16.0sp" android:id="@+id/product_category" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/competitor_activity_tracker.select_product_category" style="@style/TextAppearance.AppCompat.Body1" />-->
+                <Spinner
+                    android:id="@+id/spProductCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Duration" />
+                <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/duration" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Status" />
+                <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/status" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Reason for Out of Stock" />
+                <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/reason" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="3" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
+
+
+            <!--            <LinearLayout android:orientation="horizontal" android:paddingTop="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">-->
+<!--                <LinearLayout android:orientation="vertical" android:id="@+id/prom" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" >-->
+<!--                    <TextView android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Offer Running" />-->
+<!--                    <Spinner-->
+<!--                        android:id="@+id/spPromotion"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>-->
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout android:orientation="vertical" android:id="@+id/select_promos" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">-->
+<!--                    <TextView android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Extra Display" />-->
+<!--                    <Spinner-->
+<!--                        android:id="@+id/spDisplay"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="40dp"-->
+<!--                        style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>-->
+<!--                </LinearLayout>-->
+
+<!--            </LinearLayout>-->
+
+
+            <!--            <LinearLayout android:orientation="vertical" android:id="@+id/select_promotion" android:layout_width="fill_parent" android:layout_height="wrap_content">-->
+            <!--                <TextView android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="SKU" />-->
+            <!--                &lt;!&ndash;<TextView android:textSize="16.0sp" android:id="@+id/promotion" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/competitor_activity_tracker.select_promotion" style="@style/TextAppearance.AppCompat.Body1" />&ndash;&gt;-->
+            <!--                <Spinner-->
+            <!--                    android:id="@+id/spPromotion"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="40dp"-->
+            <!--                    style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">-->
+            <!--                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Shelf Price" />-->
+            <!--                <android.support.v7.widget.AppCompatEditText android:inputType="numberDecimal" android:textSize="16.0sp" android:gravity="start" android:id="@+id/price" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" style="@style/TextAppearance.AppCompat.Body1" />-->
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">-->
+            <!--                <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="fill_parent"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:paddingLeft="4.0dip"-->
+            <!--                        android:paddingTop="8.0dip"-->
+            <!--                        android:paddingRight="4.0dip"-->
+            <!--                        android:text="Brand Affected" />-->
+            <!--                    &lt;!&ndash;                    <android.support.v7.widget.AppCompatSpinner android:textSize="16.0sp" android:entries="@array/effect_on_sales" android:id="@+id/effect_on_sales" android:paddingLeft="0.0dip" android:paddingRight="0.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="4.0dip" android:spinnerMode="dialog" style="@style/Base.Widget.AppCompat.Spinner.Underlined" />&ndash;&gt;-->
+
+            <!--                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner-->
+            <!--                        android:id="@+id/spnBrands"-->
+            <!--                        android:layout_width="match_parent"-->
+            <!--                        android:layout_height="40dp"-->
+            <!--                        style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>-->
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout android:orientation="vertical" android:id="@+id/sales_effect_quantity_container" android:visibility="visible" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">-->
+            <!--                    <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Weekly ROS" />-->
+            <!--                    <android.support.v7.widget.AppCompatEditText android:textSize="16.0sp" android:id="@+id/effect_on_sales_quantity" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="4.0dip" android:inputType="numberDecimal" />-->
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">-->
+            <!--                <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">-->
+            <!--                    <TextView android:paddingLeft="4.0dip" android:paddingTop="4.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Price offer from" />-->
+            <!--                    <android.support.v7.widget.AppCompatEditText android:textSize="16.0sp" android:id="@+id/edtPriceFrom" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="4.0dip" android:inputType="numberDecimal" />-->
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout android:orientation="vertical" android:id="@+id/prices_effect_quantity_container" android:visibility="visible" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">-->
+            <!--                    <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Price Offer to" />-->
+            <!--                    <android.support.v7.widget.AppCompatEditText android:textSize="16.0sp" android:id="@+id/edtPriceTo" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_marginBottom="4.0dip" android:inputType="numberDecimal" />-->
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Action Required" />
+                <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/notes" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="3" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
+
+            <!--            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">-->
+            <!--                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/competitor_activity_tracker.photo" />-->
+            <!--                <FrameLayout android:background="@drawable/round_rectangle" android:padding="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">-->
+            <!--                    <ImageView android:id="@+id/selected_image_preview" android:layout_width="84.0dip" android:layout_height="84.0dip" />-->
+            <!--                    <LinearLayout android:gravity="center" android:id="@+id/select_photo" android:background="@drawable/transparent_clickable" android:focusable="true" android:clickable="true" android:layout_width="84.0dip" android:layout_height="84.0dip">-->
+            <!--                        <ImageView android:layout_gravity="center" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_photo_camera_black_24dp" android:tint="@color/grey" />-->
+            <!--                    </LinearLayout>-->
+
+            <!--                </FrameLayout>-->
+            <!--            </LinearLayout>-->
+            <View android:layout_width="fill_parent" android:layout_height="24.0dip" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+
