@@ -163,7 +163,7 @@ public class AppointmentsFragment extends Fragment {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phone = "0712345678";
+                String phone = "+254 723 688108";
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
 
                 if (ActivityCompat.checkSelfPermission(act, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {

@@ -6,6 +6,9 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,11 +25,18 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ExpiryProductActivity extends AppCompatActivity {
@@ -50,19 +60,19 @@ public class ExpiryProductActivity extends AppCompatActivity {
     public static String product_brand;
     public static String product_country;
 
-    TextView outlet, p_name, p_price, p_description, sub_category, brand, country;
+    TextView outlet, p_name, p_price, p_description, sub_category, brand, country, abv;
     EditText batch_no,quantity,comments;
     Button uploadReport, notify;
     LinearLayout myqty;
     ImageView image, stock, stockout;
     private ProgressDialog progressDialog;
+    RecyclerView recyclerView;
+    List<ProductModel> cats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expiry_product);
-
-
 
         //RECEIVE INTENT
         Intent i = this.getIntent();
@@ -79,9 +89,17 @@ public class ExpiryProductActivity extends AppCompatActivity {
         product_brand = i.getExtras().getString("PRODUCT_BRAND");
         product_country = i.getExtras().getString("PRODUCT_COUNTRY");
 
+
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
         user_name = SharedPrefManager.getInstance(this).getUsername();
         admin_id = SharedPrefManager.getInstance(this).getUserUnit();
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
+        cats = new ArrayList<>();
+        loadCategories();
 
         setTitle(product_name);
         //getSupportActionBar().setHomeButtonEnabled(true);
@@ -102,6 +120,7 @@ public class ExpiryProductActivity extends AppCompatActivity {
         brand = (TextView)findViewById(R.id.brand);
         sub_category = (TextView)findViewById(R.id.sub_category);
         country = (TextView)findViewById(R.id.country);
+        abv = (TextView)findViewById(R.id.abv);
         image = (ImageView) findViewById(R.id.image);
         stock = (ImageView) findViewById(R.id.stock);
         stockout = (ImageView) findViewById(R.id.stockout);
@@ -131,6 +150,7 @@ public class ExpiryProductActivity extends AppCompatActivity {
         sub_category.setText(product_sub);
         brand.setText(product_brand);
         country.setText(product_country);
+        abv.setText("ABV "+product_abv +"%");
 
 
         cd = new ConnectionDetector(ExpiryProductActivity.this);
@@ -156,6 +176,66 @@ public class ExpiryProductActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void loadCategories() {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_RELATED + product_sub,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        //progressBar.setVisibility(View.GONE);
+
+                        try {
+                            //converting the string to json array object
+                            JSONArray array = new JSONArray(response);
+
+                            //traversing through all the object
+                            for (int i = 0; i < array.length(); i++) {
+
+                                //getting product object from json array
+                                JSONObject cat = array.getJSONObject(i);
+
+                                //adding the Task to Task list
+                                cats.add(new ProductModel(
+                                        cat.getInt("id"),
+                                        cat.getString("cat_id"),
+                                        cat.getString("cat_name"),
+                                        cat.getString("image"),
+                                        cat.getString("price"),
+                                        cat.getString("description"),
+                                        cat.getString("usage"),
+                                        cat.getString("status"),
+                                        cat.getString("abv"),
+                                        cat.getString("sub"),
+                                        cat.getString("brand"),
+                                        cat.getString("country")
+                                        //cat.getString("catcolor_id")
+
+                                ));
+                            }
+
+                            //creating adapter object and setting it to recyclerview
+                            ProductAdapter adapter = new ProductAdapter(ExpiryProductActivity.this, cats);
+                            recyclerView.setAdapter(adapter);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        //progressBar.setVisibility(View.GONE);
+                        Toast.makeText(ExpiryProductActivity.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+        //adding our stringrequest to queue
+        Volley.newRequestQueue(this).add(stringRequest);
     }
 
 

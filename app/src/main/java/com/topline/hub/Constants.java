@@ -102,6 +102,7 @@ public class Constants {
     public static final String URL_MY_OFFERS = ROOT_URL+"offers.php?clickeditem=";
     public static final String URL_ARRIVALS = ROOT_URL+"arrivals.php?clickeditem=";
     public static final String URL_GIFT = ROOT_URL+"gifts.php?clickeditem=";
+    public static final String URL_RELATED = ROOT_URL+"related.php?clickeditem=";
 
 
     //APis by Bryan Otieno
