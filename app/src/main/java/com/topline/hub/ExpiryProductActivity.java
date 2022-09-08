@@ -45,8 +45,12 @@ public class ExpiryProductActivity extends AppCompatActivity {
     public static String product_description;
     public static String product_usage;
     public static String product_status;
+    public static String product_abv;
+    public static String product_sub;
+    public static String product_brand;
+    public static String product_country;
 
-    TextView outlet, expiry_date,manu_date, p_name, p_price, p_description, p_usage, p_status;
+    TextView outlet, p_name, p_price, p_description, sub_category, brand, country;
     EditText batch_no,quantity,comments;
     Button uploadReport, notify;
     LinearLayout myqty;
@@ -70,6 +74,10 @@ public class ExpiryProductActivity extends AppCompatActivity {
         product_description = i.getExtras().getString("PRODUCT_DESC");
         product_usage = i.getExtras().getString("PRODUCT_USAGE");
         product_status = i.getExtras().getString("PRODUCT_STATUS");
+        product_abv = i.getExtras().getString("PRODUCT_ABV");
+        product_sub = i.getExtras().getString("PRODUCT_SUB");
+        product_brand = i.getExtras().getString("PRODUCT_BRAND");
+        product_country = i.getExtras().getString("PRODUCT_COUNTRY");
 
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
         user_name = SharedPrefManager.getInstance(this).getUsername();
@@ -91,7 +99,9 @@ public class ExpiryProductActivity extends AppCompatActivity {
         p_name = (TextView)findViewById(R.id.product_name);
         p_price = (TextView)findViewById(R.id.product_price);
         p_description = (TextView)findViewById(R.id.description);
-        //p_usage = (TextView)findViewById(R.id.usage);
+        brand = (TextView)findViewById(R.id.brand);
+        sub_category = (TextView)findViewById(R.id.sub_category);
+        country = (TextView)findViewById(R.id.country);
         image = (ImageView) findViewById(R.id.image);
         stock = (ImageView) findViewById(R.id.stock);
         stockout = (ImageView) findViewById(R.id.stockout);
@@ -118,7 +128,9 @@ public class ExpiryProductActivity extends AppCompatActivity {
         p_name.setText(product_name);
         p_price.setText("Ksh. "+product_price);
         p_description.setText(product_description);
-        //p_usage.setText(product_usage);
+        sub_category.setText(product_sub);
+        brand.setText(product_brand);
+        country.setText(product_country);
 
 
         cd = new ConnectionDetector(ExpiryProductActivity.this);

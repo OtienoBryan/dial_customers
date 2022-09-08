@@ -125,7 +125,12 @@ public class CategoryProducts extends AppCompatActivity {
                                         cat.getString("price"),
                                         cat.getString("description"),
                                         cat.getString("usage"),
-                                        cat.getString("status")
+                                        cat.getString("status"),
+                                        cat.getString("abv"),
+                                        cat.getString("sub"),
+                                        cat.getString("brand"),
+                                        cat.getString("country")
+
                                         //cat.getString("catcolor_id")
 
                                 ));

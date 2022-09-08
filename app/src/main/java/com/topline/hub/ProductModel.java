@@ -12,10 +12,15 @@ public class ProductModel {
     private String description;
     private String usage;
     private String status;
+    private String abv;
+    private String sub;
+    private String brand;
+    private String country;
+
     //private String catcolor_id;
 
 
-    public ProductModel(int id, String cat_id, String name, String image, String price, String description, String usage, String status) {
+    public ProductModel(int id, String cat_id, String name, String image, String price, String description, String usage, String status, String abv, String sub, String brand, String country) {
         this.id = id;
         this.cat_id = cat_id;
         this.name = name;
@@ -24,6 +29,10 @@ public class ProductModel {
         this.description = description;
         this.usage = usage;
         this.status = status;
+        this.abv = abv;
+        this.sub = sub;
+        this.brand = brand;
+        this.country = country;
         //this.catcolor_id = catcolor_id;
 
     }
@@ -59,6 +68,20 @@ public class ProductModel {
     public String getStatus() {
         return status;
     }
+
+    public String getAbv() {
+        return abv;
+    }
+
+    public String getSub() {
+        return sub;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getCountry() { return country; }
 
     /*public String getCatcolor_id() {
         return catcolor_id;

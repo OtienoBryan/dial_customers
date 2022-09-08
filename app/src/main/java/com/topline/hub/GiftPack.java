@@ -127,8 +127,11 @@ public class GiftPack extends AppCompatActivity {
                                         cat.getString("price"),
                                         cat.getString("description"),
                                         cat.getString("usage"),
-                                        cat.getString("status")
-                                        //cat.getString("catcolor_id")
+                                        cat.getString("status"),
+                                        cat.getString("abv"),
+                                        cat.getString("sub"),
+                                        cat.getString("brand"),
+                                        cat.getString("country")
 
                                 ));
                             }
