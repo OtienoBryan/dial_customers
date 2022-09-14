@@ -94,6 +94,7 @@ public class Constants {
 
     public static final String URL_MY_CATEGORY = ROOT_URL+"category_products.php?clickeditem=";
     public static final String URL_CART = ROOT_URL+"cart.php?clickeditem=";
+    public static final String URL_ORDERS = ROOT_URL+"my_orders.php?clickeditem=";
     public static final String URL_COMPLETE = ROOT_URL+"complete.php?clickeditem=";
     public static final String URL_POST_CHECKOUT = ROOT_URL+"checkoutReport.php";
     public static final String URL_COMPLETE_ORDER = ROOT_URL+"confirm_complete.php";

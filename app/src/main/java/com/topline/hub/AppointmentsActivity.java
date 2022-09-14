@@ -129,8 +129,6 @@ public class AppointmentsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
               /*  final Calendar myCalendar = Calendar.getInstance();
 
                 DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -155,17 +153,9 @@ public class AppointmentsActivity extends AppCompatActivity {
 
                 };
 
-
-
                 new DatePickerDialog(AppointmentsActivity.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();   */
-
-
-
-
-
-
 
             }
         });

@@ -15,11 +15,11 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.ProductViewHolder>{
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewHolder>{
     private Context mCtx;
-    private List<CompleteModel> cats;
+    private List<OrderModel> cats;
 
-    public CompleteAdapter(Context mCtx, List<CompleteModel> cats) {
+    public OrderAdapter(Context mCtx, List<OrderModel> cats) {
         this.mCtx = mCtx;
         this.cats = cats;
     }
@@ -27,31 +27,25 @@ public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.Produc
     @Override
     public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.activity_complete_adapter, null);
+        View view = inflater.inflate(R.layout.activity_order_adapter, null);
         return new ProductViewHolder(view);
     }
 
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(final ProductViewHolder holder, int position) {
-        final CompleteModel cat = cats.get(position);
+        final OrderModel cat = cats.get(position);
 
 
 
         final Integer id = cat.getId();
-        final String sub_total = cat.getTotal();
-        final String d_fee = cat.getDelivery_fee();
-
-        int a =Integer.parseInt(sub_total);
-        int b =Integer.parseInt(d_fee);
-        int c = a+ b;
 
         //final String cat_id = cat.getCat_id();
-        holder.cat_name.setText("Cart Value: Ksh. "+cat.getTotal());
-        holder.territory.setText("Delivery Address: "+cat.getTerritory_name());
-        //holder.delivey_fee.setText("Delivery Fee: KES "+cat.getDelivery_fee());
-        holder.subTotal.setText("Amount Payable: Ksh. "+c);
-//        Glide.with(mCtx).load(cat.getImage()).into(holder.product_image);
+        holder.cat_name.setText(cat.getName());
+        holder.quantity.setText("Date: "+cat.getQuantity());
+        holder.price.setText("Amount: Ksh."+cat.getPrice());
+        holder.subTotal.setText("Status:"+cat.getSub_total());
+        Glide.with(mCtx).load(cat.getImage()).into(holder.product_image);
 
 //        holder.cardView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -72,7 +66,7 @@ public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.Produc
 
     class ProductViewHolder extends RecyclerView.ViewHolder {
 
-        TextView cat_name, territory, delivey_fee, subTotal;
+        TextView cat_name, quantity, price, subTotal;
         // RelativeLayout relativeLayout;
         CardView cardView;
         ImageView product_image;
@@ -83,7 +77,9 @@ public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.Produc
 
             cat_name = itemView.findViewById(R.id.txtProductCategory);
             cardView = itemView.findViewById(R.id.cardView);
-            territory = itemView.findViewById(R.id.territory);
+            product_image = itemView.findViewById(R.id.product_image);
+            quantity = itemView.findViewById(R.id.txtQuantity);
+            price = itemView.findViewById(R.id.unitPrice);
             subTotal = itemView.findViewById(R.id.subTotal);
 
 

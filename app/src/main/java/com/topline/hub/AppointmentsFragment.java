@@ -43,7 +43,7 @@ public class AppointmentsFragment extends Fragment {
     //CardView newAppointments,tasks, follow;
     CardView lnOffer, lnArrival,lnGift,lnLife, lnSoS, lnActivity, lnCoach;
     Button btnNew;
-    LinearLayout category, home, notification, cart, call, press;
+    LinearLayout category, home, notification, cart, call, orders;
     TextView user_name, user_phone, user_role, user_team,activity,txtDate;
 
     RecyclerView recyclerView;
@@ -63,7 +63,7 @@ public class AppointmentsFragment extends Fragment {
         notification = (LinearLayout) v.findViewById(R.id.notification);
         cart = (LinearLayout) v.findViewById(R.id.cart);
         call = (LinearLayout) v.findViewById(R.id.call);
-        press = (LinearLayout) v.findViewById(R.id.press);
+        orders = (LinearLayout) v.findViewById(R.id.orders);
         //notice = (LinearLayout) v.findViewById(R.id.notice);
 
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
@@ -133,11 +133,11 @@ public class AppointmentsFragment extends Fragment {
             }
         });
 
-        press.setOnClickListener(new View.OnClickListener() {
+        orders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(act, Prescription.class));
+                startActivity(new Intent(act, MyOrders.class));
 
             }
         });

@@ -20,7 +20,10 @@
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="5dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:cardElevation="20dp"
@@ -35,54 +38,38 @@
                     android:id="@+id/ln1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginStart="8dp"
                     android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/txtProductCategory"
+                        android:id="@+id/address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:fontFamily="monospace"
                         android:padding="2dp"
-                        android:text="Cart Value"
+                        android:text="Address:"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@+id/product_image"
                         app:layout_constraintTop_toTopOf="parent" />
 
+
                     <TextView
-                        android:id="@+id/territory"
+                        android:id="@+id/instruction"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:fontFamily="monospace"
                         android:padding="2dp"
-                        android:text="Delivery Address"
+                        android:text="Instructions:"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         app:layout_constraintStart_toEndOf="@+id/product_image"
-                        app:layout_constraintTop_toBottomOf="@+id/txtProductCategory" />
-
-                    <TextView
-                        android:id="@+id/subTotal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:fontFamily="monospace"
-                        android:padding="2dp"
-                        android:text="Total"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:layout_constraintStart_toEndOf="@+id/product_image"
-                        app:layout_constraintTop_toBottomOf="@+id/unitPrice" />
+                        app:layout_constraintTop_toBottomOf="@+id/txtQuantity" />
 
 
                 </LinearLayout>

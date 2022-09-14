@@ -15,11 +15,11 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.ProductViewHolder>{
+public class AddressAdapter extends RecyclerView.Adapter<AddressAdapter.ProductViewHolder>{
     private Context mCtx;
     private List<CompleteModel> cats;
 
-    public CompleteAdapter(Context mCtx, List<CompleteModel> cats) {
+    public AddressAdapter(Context mCtx, List<CompleteModel> cats) {
         this.mCtx = mCtx;
         this.cats = cats;
     }
@@ -27,7 +27,7 @@ public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.Produc
     @Override
     public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.activity_complete_adapter, null);
+        View view = inflater.inflate(R.layout.activity_address_adapter, null);
         return new ProductViewHolder(view);
     }
 
@@ -47,10 +47,9 @@ public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.Produc
         int c = a+ b;
 
         //final String cat_id = cat.getCat_id();
-        holder.cat_name.setText("Cart Value: Ksh. "+cat.getTotal());
-        holder.territory.setText("Delivery Address: "+cat.getTerritory_name());
-        //holder.delivey_fee.setText("Delivery Fee: KES "+cat.getDelivery_fee());
-        holder.subTotal.setText("Amount Payable: Ksh. "+c);
+        holder.address.setText("Address: "+cat.getTotal());
+        holder.instruction.setText("Instructions: "+cat.getTerritory_name());
+
 //        Glide.with(mCtx).load(cat.getImage()).into(holder.product_image);
 
 //        holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +71,7 @@ public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.Produc
 
     class ProductViewHolder extends RecyclerView.ViewHolder {
 
-        TextView cat_name, territory, delivey_fee, subTotal;
+        TextView address, instruction, delivey_fee, subTotal;
         // RelativeLayout relativeLayout;
         CardView cardView;
         ImageView product_image;
@@ -81,11 +80,9 @@ public class CompleteAdapter extends RecyclerView.Adapter<CompleteAdapter.Produc
         public ProductViewHolder(View itemView) {
             super(itemView);
 
-            cat_name = itemView.findViewById(R.id.txtProductCategory);
+            address = itemView.findViewById(R.id.address);
             cardView = itemView.findViewById(R.id.cardView);
-            territory = itemView.findViewById(R.id.territory);
-            subTotal = itemView.findViewById(R.id.subTotal);
-
+            instruction = itemView.findViewById(R.id.instruction);
 
         }
     }

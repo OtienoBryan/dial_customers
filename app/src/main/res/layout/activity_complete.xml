@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:layout_width="fill_parent"
+<RelativeLayout android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     style="@style/activity"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ProgressBar
         android:id="@+id/progress"
@@ -15,9 +15,123 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_marginBottom="70dp">
+        android:layout_margin="10dp">
     </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/textloc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recycler"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:text="Delivery Information"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/lnAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textloc"
+       android:layout_margin="8dp"
+        android:orientation="horizontal"
+        android:padding="4dp"
+        android:background="@drawable/round_border">
+
+        <TextView
+            android:id="@+id/delivery_address"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint=" Change Delivery Address"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/geo" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/confirm"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="Change Address" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnInst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lnAddress"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        android:background="@drawable/border">
+
+        <EditText
+            android:id="@+id/instruction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:hint="Instructions"
+            android:textSize="18sp"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/lnInst"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:layout_marginTop="15dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="4dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Payment Method"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+            android:id="@+id/spnMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/confirm"
+        android:layout_margin="4dp"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        android:text="By Placing an order I confirm that i'm 18 years or older and accept the terms and conditions." />
 
     <Button
         android:id="@+id/confirm"
@@ -25,7 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
-        android:text="Confirm Order"
+        android:text="Place Order"
         android:textColor="#fff"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp" />

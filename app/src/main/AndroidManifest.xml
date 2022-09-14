@@ -27,7 +27,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GiftPack"></activity>
+        <activity android:name=".OrderAdapter"></activity>
+        <activity android:name=".MyOrders" />
+        <activity android:name=".AddressAdapter" />
+        <activity android:name=".GiftPack" />
         <activity android:name=".NewArrivals" />
         <activity android:name=".OfferFragment" />
         <activity android:name=".Prescription" />

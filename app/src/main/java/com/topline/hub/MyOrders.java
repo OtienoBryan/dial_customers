@@ -7,10 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -29,9 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import retrofit2.Callback;
-
-public class Complete extends AppCompatActivity {
+public class MyOrders extends AppCompatActivity {
 
     public static String user_id;
     public static String admin_id;
@@ -40,23 +36,21 @@ public class Complete extends AppCompatActivity {
     public static String category_id;
 
     //a list to store all the products
-    List<CompleteModel> cats;
-    private ArrayList<String> daysList = new ArrayList<>();
+    List<OrderModel> cats;
 
     //the recyclerview
     RecyclerView recyclerView;
 
     private ProgressBar progressBar;
-    Spinner spnMethod;
 
-    Button confirm, add_cart;
+    Button checkout, add_cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         outlet_name = SharedPrefManager.getInstance(this).getOutletName();
-        setTitle("Check Out");
-        setContentView(R.layout.activity_complete);
+        setTitle("My Orders");
+        setContentView(R.layout.activity_my_orders);
         //getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -64,7 +58,6 @@ public class Complete extends AppCompatActivity {
         Intent i = this.getIntent();
         //String shelf_id = i.getExtras().getString("SHELF_KEY");
         String shelf_id = "1";
-        Spinner spnMethod;
 
         category_id = shelf_id;
 
@@ -73,47 +66,41 @@ public class Complete extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         progressBar = (ProgressBar)findViewById(R.id.progress);
-
-        confirm = (Button) findViewById(R.id.confirm);
-
+        checkout = (Button) findViewById(R.id.checkout);
+        add_cart = (Button) findViewById(R.id.add_cart);
 
 
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
         admin_id = SharedPrefManager.getInstance(this).getUserUnit();
-
-        confirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                confirming();
-            }
-        });
 
 
         //initializing the productlist
         cats = new ArrayList<>();
 
         loadCategories();
-        fetchOutlet();
+
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                checking();
+            }
+        });
+
+        add_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MyOrders.this, ProductCat.class));
+            }
+        });
+
+
 
     }
-
-    public void fetchOutlet(){
-        daysList.clear();
-        daysList.add("Cash on Delivery");
-        daysList.add("Mpesa on Delivery");
-        daysList.add("Swipe on Delivery (+2.5% processing fee)");
-        daysList.add("Pay Online (+3% processing fee)");
-
-        final Spinner spnMethod = (Spinner) findViewById(R.id.spnMethod);
-
-        loadSpinner(spnMethod,daysList);
-
-    }
-
-
     private void loadCategories() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_COMPLETE,
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_ORDERS,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -131,21 +118,21 @@ public class Complete extends AppCompatActivity {
                                 JSONObject cat = array.getJSONObject(i);
 
                                 //adding the Task to Task list
-                                cats.add(new CompleteModel(
+                                cats.add(new OrderModel(
                                         cat.getInt("id"),
                                         cat.getString("cat_id"),
-                                        cat.getString("customer_name"),
-                                        cat.getString("territory_id"),
-                                        cat.getString("territory_name"),
-                                        cat.getString("delivery_fee"),
-                                        cat.getString("total")
+                                        cat.getString("name"),
+                                        cat.getString("quantity"),
+                                        cat.getString("image"),
+                                        cat.getString("price"),
+                                        cat.getString("sub_total")
                                         //cat.getString("catcolor_id")
 
                                 ));
                             }
 
                             //creating adapter object and setting it to recyclerview
-                            CompleteAdapter adapter = new CompleteAdapter(Complete.this, cats);
+                            OrderAdapter adapter = new OrderAdapter(MyOrders.this, cats);
                             recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -157,7 +144,7 @@ public class Complete extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         progressBar.setVisibility(View.GONE);
-                        Toast.makeText(Complete.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MyOrders.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -169,7 +156,7 @@ public class Complete extends AppCompatActivity {
     public void onBackPressed(){
         //super.onBackPressed();
 
-        startActivity(new Intent(Complete.this, Cart.class));
+        startActivity(new Intent(MyOrders.this, MainActivity.class));
     }
 
     @Override
@@ -184,7 +171,7 @@ public class Complete extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void confirming(){
+    private void checking(){
 
         final String userId = SharedPrefManager.getInstance(this).getUserId().toString().trim();
         final String userName = SharedPrefManager.getInstance(this).getUsername().trim();
@@ -192,20 +179,20 @@ public class Complete extends AppCompatActivity {
         final String contact = SharedPrefManager.getInstance(this).getUserTelephone().trim();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                Constants.URL_COMPLETE_ORDER,
+                Constants.URL_POST_CHECKOUT,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
-                        startActivity(new Intent(Complete.this, MainActivity.class));
-                        Complete.this.finish();
+                        startActivity(new Intent(MyOrders.this, Complete.class));
+                        MyOrders.this.finish();
 
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Complete.this, "Error Occurred Try again", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MyOrders.this, "Error Occurred Try again", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -227,20 +214,5 @@ public class Complete extends AppCompatActivity {
 
     }
 
-    private void loadSpinner(Spinner spinner, ArrayList<String> arrayList) {
-        if(arrayList.size() > 0) {
-            ArrayAdapter<String> spnAdapter = new ArrayAdapter(Complete.this, android.R.layout.simple_spinner_item, arrayList);
-            spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setAdapter(spnAdapter);
-        }else{
-            arrayList.add("Sync to get outlets");
-            ArrayAdapter<String> spnAdapter = new ArrayAdapter(Complete.this, android.R.layout.simple_spinner_item, arrayList);
-            spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner.setAdapter(spnAdapter);
-
-        }
-        //spinner.setOnItemSelectedListener(new changeBackground());
-
-    }
 
 }

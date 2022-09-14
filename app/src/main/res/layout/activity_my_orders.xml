@@ -55,24 +55,24 @@
             android:layout_gravity="center"
             android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/confirm"
-            android:layout_margin="3dp"
-            android:textStyle="italic"
-            android:layout_gravity="center"
-            android:text="The world's first Soft Drink from Jacob Schweppes.Goes with any Gin." />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/confirm"
+                android:layout_margin="3dp"
+                android:textStyle="italic"
+                android:layout_gravity="center"
+                android:text="The world's first Soft Drink from Jacob Schweppes.Goes with any Gin." />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/confirm"
-            android:layout_margin="1dp"
-            android:textColor="@color/black"
-            android:textStyle="italic"
-            android:layout_gravity="center"
-            android:text="Add Tonic Water to My Cart" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/confirm"
+                android:layout_margin="1dp"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                android:layout_gravity="center"
+                android:text="Add Tonic Water to My Cart" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

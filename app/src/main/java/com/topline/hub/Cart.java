@@ -155,11 +155,11 @@ public class Cart extends AppCompatActivity {
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
-//    public void onBackPressed(){
-//        //super.onBackPressed();
-//
-//        startActivity(new Intent(ProductCategoryActivity.this, QuestionsActivity.class));
-//    }
+    public void onBackPressed(){
+        //super.onBackPressed();
+
+        startActivity(new Intent(Cart.this, MainActivity.class));
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -172,8 +172,6 @@ public class Cart extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 
     private void checking(){
 
