@@ -27,16 +27,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MyOrders extends AppCompatActivity {
+public class CartItems extends AppCompatActivity {
 
     public static String user_id;
     public static String admin_id;
     public static String outlet_name;
 
-    public static String category_id;
+    public static String category_id, orders_id;
 
     //a list to store all the products
-    List<OrderModel> cats;
+    List<CartModel> cats;
 
     //the recyclerview
     RecyclerView recyclerView;
@@ -49,8 +49,8 @@ public class MyOrders extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         outlet_name = SharedPrefManager.getInstance(this).getOutletName();
-        setTitle("My Orders");
-        setContentView(R.layout.activity_my_orders);
+        setTitle("Order Items");
+        setContentView(R.layout.activity_cart_items);
         //getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -58,8 +58,10 @@ public class MyOrders extends AppCompatActivity {
         Intent i = this.getIntent();
         //String shelf_id = i.getExtras().getString("SHELF_KEY");
         String shelf_id = "1";
+        final String order_id = i.getExtras().getString("ID_KEY");
 
         category_id = shelf_id;
+        orders_id = order_id;
 
         //getting the recyclerview from xml
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
@@ -74,33 +76,37 @@ public class MyOrders extends AppCompatActivity {
         admin_id = SharedPrefManager.getInstance(this).getUserUnit();
 
 
+
+
         //initializing the productlist
         cats = new ArrayList<>();
 
         loadCategories();
 
-//        checkout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                checking();
-//            }
-//        });
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                checking();
+            }
+        });
 
 //        add_cart.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //
-//                startActivity(new Intent(MyOrders.this, ProductCat.class));
+//                startActivity(new Intent(CartItems.this, ProductCat.class));
 //            }
 //        });
 
 
 
     }
+
+
     private void loadCategories() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_ORDERS,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_ORDER_ITEMS + orders_id,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -118,7 +124,7 @@ public class MyOrders extends AppCompatActivity {
                                 JSONObject cat = array.getJSONObject(i);
 
                                 //adding the Task to Task list
-                                cats.add(new OrderModel(
+                                cats.add(new CartModel(
                                         cat.getInt("id"),
                                         cat.getString("cat_id"),
                                         cat.getString("name"),
@@ -132,7 +138,7 @@ public class MyOrders extends AppCompatActivity {
                             }
 
                             //creating adapter object and setting it to recyclerview
-                            OrderAdapter adapter = new OrderAdapter(MyOrders.this, cats);
+                            CartAdapter adapter = new CartAdapter(CartItems.this, cats);
                             recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -144,7 +150,7 @@ public class MyOrders extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         progressBar.setVisibility(View.GONE);
-                        Toast.makeText(MyOrders.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CartItems.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -156,7 +162,7 @@ public class MyOrders extends AppCompatActivity {
     public void onBackPressed(){
         //super.onBackPressed();
 
-        startActivity(new Intent(MyOrders.this, MainActivity.class));
+        startActivity(new Intent(CartItems.this, MyOrders.class));
     }
 
     @Override
@@ -177,22 +183,23 @@ public class MyOrders extends AppCompatActivity {
         final String userName = SharedPrefManager.getInstance(this).getUsername().trim();
         final String adminId = SharedPrefManager.getInstance(this).getUserUnit().trim();
         final String contact = SharedPrefManager.getInstance(this).getUserTelephone().trim();
+        final String order_id = orders_id;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                Constants.URL_POST_CHECKOUT,
+                Constants.URL_POST_REORDER,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
-                        startActivity(new Intent(MyOrders.this, Complete.class));
-                        MyOrders.this.finish();
+                        startActivity(new Intent(CartItems.this, Cart.class));
+                        CartItems.this.finish();
 
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MyOrders.this, "Error Occurred Try again", Toast.LENGTH_LONG).show();
+                        Toast.makeText(CartItems.this, "Error Occurred Try again", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
@@ -203,6 +210,7 @@ public class MyOrders extends AppCompatActivity {
                 params.put("user_id", userId);
                 params.put("admin_id", adminId);
                 params.put("user_contact", contact);
+                params.put("order_id", order_id);
 
                 return params;
             }

@@ -41,19 +41,19 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
         final Integer id = cat.getId();
 
         //final String cat_id = cat.getCat_id();
-        holder.cat_name.setText(cat.getName());
+        //holder.cat_name.setText(cat.getName());
         holder.quantity.setText("Date: "+cat.getQuantity());
         holder.price.setText("Amount: Ksh."+cat.getPrice());
         holder.subTotal.setText("Status:"+cat.getSub_total());
-        Glide.with(mCtx).load(cat.getImage()).into(holder.product_image);
+        //Glide.with(mCtx).load(cat.getImage()).into(holder.product_image);
 
-//        holder.cardView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                openDetailActivity(id.toString(), cat.getCat_id(),cat.getName());
-//            }
-//        });
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                openDetailActivity(id.toString(), cat.getCat_id(),cat.getName());
+            }
+        });
 
 
 
@@ -75,9 +75,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
         public ProductViewHolder(View itemView) {
             super(itemView);
 
-            cat_name = itemView.findViewById(R.id.txtProductCategory);
+            //cat_name = itemView.findViewById(R.id.txtProductCategory);
             cardView = itemView.findViewById(R.id.cardView);
-            product_image = itemView.findViewById(R.id.product_image);
+            //product_image = itemView.findViewById(R.id.product_image);
             quantity = itemView.findViewById(R.id.txtQuantity);
             price = itemView.findViewById(R.id.unitPrice);
             subTotal = itemView.findViewById(R.id.subTotal);
@@ -86,23 +86,18 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
         }
     }
 
+    private void openDetailActivity(String id, String cat_id, String name){
 
+        Intent i = new Intent(mCtx, CartItems.class);
 
-//    private void openDetailActivity(String id, String cat_id, String name){
-//
-//
-//
-//
-//        Intent i = new Intent(mCtx, CategoryProducts.class);
-//
-//        //PACK DATA
-//        i.putExtra("ID_KEY", id);
-//        i.putExtra("CAT_ID", cat_id);
-//        i.putExtra("CAT_NAME", name);
-//
-//        mCtx.startActivity(i);
-//
-//    }
+        //PACK DATA
+        i.putExtra("ID_KEY", id);
+        i.putExtra("CAT_ID", cat_id);
+        i.putExtra("CAT_NAME", name);
+
+        mCtx.startActivity(i);
+
+    }
 
 
 

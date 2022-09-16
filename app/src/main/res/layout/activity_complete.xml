@@ -15,7 +15,7 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_margin="4dp">
     </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
@@ -79,25 +79,46 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lnAddress"
-        android:layout_marginTop="4dp"
+        android:layout_margin="8dp"
         android:orientation="horizontal"
-        android:background="@drawable/border">
+        android:background="@drawable/round_border">
 
         <EditText
             android:id="@+id/instruction"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
             android:hint="Instructions"
             android:textSize="18sp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
             android:textColor="@color/black" />
     </LinearLayout>
 
-    <androidx.cardview.widget.CardView
-        android:layout_below="@+id/lnInst"
+    <LinearLayout
+        android:id="@+id/lnPromo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
+        android:layout_below="@id/lnInst"
+        android:background="@drawable/round_border"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/promo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Promo Code"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/lnPromo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
         android:layout_marginTop="15dp"
         app:cardElevation="20dp">
 
