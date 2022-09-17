@@ -76,8 +76,6 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-
     </LinearLayout>
 
 
@@ -89,6 +87,7 @@
         android:background="@color/colorPrimary"
         android:text="Proceed to checkout"
         android:textColor="#fff"
+        android:enabled="false"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp" />
 

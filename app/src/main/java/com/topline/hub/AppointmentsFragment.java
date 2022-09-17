@@ -41,7 +41,8 @@ public class AppointmentsFragment extends Fragment {
     Activity act;
 
     //CardView newAppointments,tasks, follow;
-    CardView lnOffer, lnArrival,lnGift,lnLife, lnSoS, lnActivity, lnCoach;
+    CardView lnOffer, lnArrival,lnGift,lnPopular;
+    CardView cvWhisky, cvWines, cvCognac, cvVapes;
     Button btnNew;
     LinearLayout category, home, notification, cart, call, orders;
     TextView user_name, user_phone, user_role, user_team,activity,txtDate;
@@ -74,10 +75,15 @@ public class AppointmentsFragment extends Fragment {
         loadCategories();
 
 
-        //newAppointments = (CardView)v.findViewById(R.id.cvNew);
+        lnPopular = (CardView)v.findViewById(R.id.lnPopular);
         lnOffer = (CardView)v.findViewById(R.id.lnOffer);
         lnArrival = (CardView)v.findViewById(R.id.lnArrival);
         lnGift = (CardView)v.findViewById(R.id.lnGift);
+
+        cvWhisky = (CardView)v.findViewById(R.id.cvWhisky);
+        cvCognac = (CardView)v.findViewById(R.id.cvCognac);
+        cvWines = (CardView)v.findViewById(R.id.cvWines);
+        cvVapes = (CardView)v.findViewById(R.id.cvVapes);
         //lnLife = (CardView)v.findViewById(R.id.lnLife);
 
         if (ContextCompat.checkSelfPermission(act, Manifest.permission.CALL_PHONE)
@@ -100,18 +106,6 @@ public class AppointmentsFragment extends Fragment {
                 // result of the request.
             }
         }
-
-
-
-//        notice.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, Notice.class));
-//
-//            }
-//        });
-
 
         category.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -181,63 +175,65 @@ public class AppointmentsFragment extends Fragment {
             }
         });
 
-//        request.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, PromotionActivity.class));
-//
-//            }
-//        });
+        //Product Category
 
-//        support.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, About.class));
-//
-//            }
-//        });
+        cvWhisky.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "16";
+                final String name = "Whisky";
 
-//        sos.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, NewSos.class));
-//
-//            }
-//        });
+                openCategory(id, cat_id, name);
+            }
+        });
 
-//        history.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, AppointmentsActivity.class));
-//
-//            }
-//        });
+        cvWines.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "17";
+                final String name = "Wines";
 
-//        lnTasks.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                if(SharedPrefManager.getInstance(act).getUserLastname().equalsIgnoreCase("56")){
-//                    startActivity(new Intent(act, TeamLeaderCollage.class));
-//                }else {
-//                    startActivity(new Intent(act, ActivityTrackerView.class));
-//                }
-//
-//
-//
-//
-//            }
-//        });
+                openCategory(id, cat_id, name);
+            }
+        });
+
+        cvCognac.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "6";
+                final String name = "Cognac";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+        cvVapes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "14";
+                final String name = "Cigarettes";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+
 
         lnOffer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 startActivity(new Intent(act, OfferFragment.class));
+            }
+        });
+
+        lnPopular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(act, PopularWines.class));
             }
         });
 
@@ -256,63 +252,6 @@ public class AppointmentsFragment extends Fragment {
                 startActivity(new Intent(act, GiftPack.class));
             }
         });
-
-//        lnVisit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, OutletsVisited.class));
-//            }
-//        });
-
-//        lnExpiry.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, MyExpiryProduct.class));
-//            }
-//        });
-//
-//        lnSoS.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, OutletsVisited.class));
-//            }
-//        });
-
-//        lnActivity.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, ActivityTrackerView.class));
-//            }
-//        });
-
-//        lnCoach.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(act, TeamLeaderCollage.class));
-//            }
-//        });
-
-
-        //btnNew = (Button) v.findViewById(R.id.btnNew);
-        //tasks = (CardView)v.findViewById(R.id.cvTasks);
-
-
-       /* btnNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(act, AppointmentsActivity.class));
-
-            }
-        });*/
-
-
-
 
         return v;
     }
@@ -385,6 +324,23 @@ public class AppointmentsFragment extends Fragment {
         ft.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
         ft.replace(R.id.frame, f);
         ft.commit();
+
+    }
+
+
+    private void openCategory(String id, String cat_id, String name){
+
+
+
+
+        Intent i = new Intent(act, CategoryProducts.class);
+
+        //PACK DATA
+        i.putExtra("ID_KEY", id);
+        i.putExtra("CAT_ID", cat_id);
+        i.putExtra("CAT_NAME", name);
+
+        act.startActivity(i);
 
     }
 

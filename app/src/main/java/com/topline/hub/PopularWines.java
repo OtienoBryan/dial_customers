@@ -3,6 +3,8 @@ package com.topline.hub;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.MenuItem;
@@ -11,7 +13,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -23,50 +24,55 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-public class Cart extends AppCompatActivity {
+public class PopularWines extends AppCompatActivity {
 
     public static String user_id;
     public static String admin_id;
     public static String outlet_name;
 
     public static String category_id;
-     
-    List<CartModel> cats;
+    public static String cat_id;
+    public static String cat_name;
+
+    //a list to store all the products
+    List<ProductModel> cats;
 
     //the recyclerview
     RecyclerView recyclerView;
 
     private ProgressBar progressBar;
 
-    Button checkout, add_cart;
+    Button back_to_report;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         outlet_name = SharedPrefManager.getInstance(this).getOutletName();
-        setTitle("My Cart");
-        setContentView(R.layout.activity_cart);
+
+        setContentView(R.layout.activity_popular_wines);
         //getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //RECEIVE INTENT
         Intent i = this.getIntent();
-        //String shelf_id = i.getExtras().getString("SHELF_KEY");
+        //String cat_id = i.getExtras().getString("CAT_ID");
+        String cat_id = "1";
+        //String cat_name = i.getExtras().getString("CAT_NAME");
+        String cat_name = "Popular Wines";
         String shelf_id = "1";
 
-        category_id = shelf_id;
+        setTitle(cat_name);
+
+        category_id = cat_id;
 
         //getting the recyclerview from xml
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         progressBar = (ProgressBar)findViewById(R.id.progress);
-        checkout = (Button) findViewById(R.id.checkout);
-        add_cart = (Button) findViewById(R.id.add_cart);
+        back_to_report = (Button) findViewById(R.id.back_to_report);
 
 
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
@@ -78,19 +84,13 @@ public class Cart extends AppCompatActivity {
 
         loadCategories();
 
-        checkout.setOnClickListener(new View.OnClickListener() {
+
+
+        back_to_report.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                checking();
-            }
-        });
-
-        add_cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(Cart.this, ProductCat.class));
+                startActivity(new Intent(PopularWines.this, MainActivity.class));
             }
         });
 
@@ -101,7 +101,7 @@ public class Cart extends AppCompatActivity {
 
     private void loadCategories() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_CART,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_POPULAR+category_id,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -119,29 +119,27 @@ public class Cart extends AppCompatActivity {
                                 JSONObject cat = array.getJSONObject(i);
 
                                 //adding the Task to Task list
-                                cats.add(new CartModel(
+                                cats.add(new ProductModel(
                                         cat.getInt("id"),
                                         cat.getString("cat_id"),
-                                        cat.getString("name"),
-                                        cat.getString("quantity"),
+                                        cat.getString("cat_name"),
                                         cat.getString("image"),
                                         cat.getString("price"),
-                                        cat.getString("sub_total")
+                                        cat.getString("description"),
+                                        cat.getString("usage"),
+                                        cat.getString("status"),
+                                        cat.getString("abv"),
+                                        cat.getString("sub"),
+                                        cat.getString("brand"),
+                                        cat.getString("country")
                                         //cat.getString("catcolor_id")
 
                                 ));
                             }
 
                             //creating adapter object and setting it to recyclerview
-                            CartAdapter adapter = new CartAdapter(Cart.this, cats);
+                            ProductAdapter adapter = new ProductAdapter(PopularWines.this, cats);
                             recyclerView.setAdapter(adapter);
-                            if (cats.size() > 0) {
-                                checkout.setEnabled(true);
-                                Toast.makeText(Cart.this, "Records updated.", Toast.LENGTH_SHORT).show();
-                            } else {
-                                startActivity(new Intent(Cart.this, MainActivity.class));
-                                Toast.makeText(Cart.this, "No Items in Cart.", Toast.LENGTH_SHORT).show();
-                            }
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -152,7 +150,7 @@ public class Cart extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         progressBar.setVisibility(View.GONE);
-                        Toast.makeText(Cart.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(PopularWines.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -161,11 +159,11 @@ public class Cart extends AppCompatActivity {
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
-    public void onBackPressed(){
-        //super.onBackPressed();
-
-        startActivity(new Intent(Cart.this, MainActivity.class));
-    }
+//    public void onBackPressed(){
+//        //super.onBackPressed();
+//
+//        startActivity(new Intent(ProductCategoryActivity.this, QuestionsActivity.class));
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -177,49 +175,6 @@ public class Cart extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    private void checking(){
-
-        final String userId = SharedPrefManager.getInstance(this).getUserId().toString().trim();
-        final String userName = SharedPrefManager.getInstance(this).getUsername().trim();
-        final String adminId = SharedPrefManager.getInstance(this).getUserUnit().trim();
-        final String contact = SharedPrefManager.getInstance(this).getUserTelephone().trim();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                Constants.URL_POST_CHECKOUT,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        startActivity(new Intent(Cart.this, Complete.class));
-                        Cart.this.finish();
-
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Cart.this, "Error Occurred Try again", Toast.LENGTH_LONG).show();
-                    }
-                }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-
-                params.put("user_name", userName);
-                params.put("user_id", userId);
-                params.put("admin_id", adminId);
-                params.put("user_contact", contact);
-
-                return params;
-            }
-        };
-
-        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
-
-
-
     }
 
 
