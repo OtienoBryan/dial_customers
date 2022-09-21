@@ -29,13 +29,15 @@ public class Login extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         boolean firstStart = prefs.getBoolean("firstStart", true);
 
-        if (firstStart) {
+//        if (firstStart) {
+//
+//            setFragment(new ActivationFragment());
+//
+//        }else{
+//            setFragment(new LoginFragment());
+//        }
 
-            setFragment(new ActivationFragment());
-
-        }else{
-            setFragment(new LoginFragment());
-        }
+        setFragment(new LoginFragment());
 
         /// THIS TO APPLY THE ACTIVATION ONCE ON APP RUN BEFORE ACTIVATION...END
 

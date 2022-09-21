@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:padding="8.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.appcompat.widget.AppCompatButton android:id="@+id/submit_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Submit" android:layout_alignParentBottom="true" style="@style/bluebuttons" />
+    <androidx.appcompat.widget.AppCompatButton android:id="@+id/submit_button" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Register" android:layout_alignParentBottom="true" style="@style/bluebuttons" />
     <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_above="@id/submit_button" android:layout_alignParentTop="true">
         <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
             <!--<LinearLayout android:orientation="vertical" android:id="@+id/select_outlet" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/Base.Widget.AppCompat.Spinner.Underlined">
@@ -20,8 +20,18 @@
             </LinearLayout>
 
             <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
-                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Full Name" />
+                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="First Name" />
                 <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/name" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Last Name" />
+                <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/lname" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Email Address" />
+                <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/email" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
             </LinearLayout>
 
             <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
@@ -40,29 +50,45 @@
                     style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
             </LinearLayout>
 
-            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
-                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Email Address" />
-                <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/email" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
-            </LinearLayout>
+
 
             <LinearLayout android:orientation="horizontal" android:paddingTop="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <LinearLayout android:orientation="vertical" android:id="@+id/prom" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" >
-                    <TextView android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="County" />
-                    <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/county" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+                    <TextView android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Address" />
+                    <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/address" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
                 </LinearLayout>
 
                 <LinearLayout android:orientation="vertical" android:id="@+id/select_promos" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
-                    <TextView android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Location" />
-                    <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/location" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+                    <TextView android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="House Number" />
+                    <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/house" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
                 </LinearLayout>
 
             </LinearLayout>
 
-
-
             <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
                 <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Password" />
-                <androidx.appcompat.widget.AppCompatEditText android:textSize="16.0sp" android:gravity="start" android:id="@+id/password" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lines="1" android:inputType="textMultiLine" style="@style/TextAppearance.AppCompat.Body1" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/password"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:inputType="textPassword"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:paddingLeft="4.0dip" android:paddingTop="8.0dip" android:paddingRight="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="Confirm Password" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/cpassword"
+                    style="@style/TextAppearance.AppCompat.Body1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:inputType="textPassword"
+                    android:textSize="16.0sp" />
             </LinearLayout>
 
             <View android:layout_width="fill_parent" android:layout_height="24.0dip" />

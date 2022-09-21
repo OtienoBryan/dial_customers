@@ -20,6 +20,34 @@
                 app:layout_constraintTop_toTopOf="parent"
                 />
 
+            <TextView
+                android:id="@+id/head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="monospace"
+                android:text="Dial A Drink Kenya"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topView" />
+
+            <TextView
+                android:id="@+id/heads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:fontFamily="monospace"
+                android:text="Let the Drinks Come to You"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/head" />
+
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -29,7 +57,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/topView" />
+                app:layout_constraintTop_toBottomOf="@+id/heads" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -65,7 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="16dp"
                 android:drawableStart="@drawable/ic_phone"
                 android:ems="10"
@@ -192,6 +220,7 @@
                 android:text="New to Dial A Drink?"
                 android:textColor="@color/black"
                 android:fontFamily="monospace"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -203,7 +232,7 @@
                 android:layout_marginBottom="32dp"
                 android:text="Sign Up"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:fontFamily="monospace"
                 app:layout_constraintBottom_toBottomOf="parent"

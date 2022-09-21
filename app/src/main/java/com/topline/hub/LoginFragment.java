@@ -41,8 +41,8 @@ public class LoginFragment extends Fragment {
 
     Activity act;
 
-    private Button login, sign;
-    private TextView textActivation, terms;
+    private Button login;
+    private TextView textActivation, register;
     private EditText editTextUsername,editTextPassword,editTextDevice;
     private ProgressDialog progressDialog;
     AlertDialog showLoginDialog=null;
@@ -57,6 +57,7 @@ public class LoginFragment extends Fragment {
         View v = inflater.inflate(R.layout.new_login, container, false);
         act=getActivity();
         textActivation = (TextView)v.findViewById(R.id.textActivate);
+        register = (TextView)v.findViewById(R.id.register);
 
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
 
@@ -81,6 +82,14 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 setFragment(new ActivationFragment());
+            }
+        });
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(act, Register.class));
+                act.finish();
             }
         });
 

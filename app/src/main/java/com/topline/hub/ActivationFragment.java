@@ -89,14 +89,22 @@ public class ActivationFragment extends Fragment {
 
 
 
+//        activate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                if (view == activate){
+//                    userActivation();
+//                }
+//
+//            }
+//        });
+
         activate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
 
-                if (view == activate){
-                    userActivation();
-                }
-
+                startActivity(new Intent(act, Login.class));
             }
         });
 
@@ -108,13 +116,13 @@ public class ActivationFragment extends Fragment {
             }
         });
 
-        terms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(act, Terms.class));
-            }
-        });
+//        terms.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(act, Terms.class));
+//            }
+//        });
 
 //        btnIssue.setOnClickListener(new View.OnClickListener() {
 //            @Override

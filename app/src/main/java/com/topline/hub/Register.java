@@ -40,8 +40,10 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     //// for Images.........END
 
     public static String admin_id;
+    public static String c_password;
+    public static String s_password;
 
-    EditText name,phone,email,location,county,password;
+    EditText name,lname,phone,email,address,house,password,cpassword;
     Button btnSubmit;
 
     private ProgressDialog pd, progressDialog;
@@ -54,7 +56,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         //getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        setTitle("Register");
+        setTitle("Sign Up");
 
 
         ///// initialise the views................
@@ -63,11 +65,13 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         progressDialog.setMessage("Please wait...");
 
         name =(EditText) findViewById(R.id.name);
+        lname =(EditText) findViewById(R.id.lname);
         phone =(EditText) findViewById(R.id.phone);
         email =(EditText) findViewById(R.id.email);
-        location =(EditText) findViewById(R.id.location);
-        county =(EditText) findViewById(R.id.county);
+        address =(EditText) findViewById(R.id.address);
+        house =(EditText) findViewById(R.id.house);
         password =(EditText) findViewById(R.id.password);
+        cpassword =(EditText) findViewById(R.id.cpassword);
         btnSubmit =(Button) findViewById(R.id.submit_button);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -75,9 +79,14 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
             public void onClick(View v) {
                 if (cd.isConnectingToInternet()) {
                     if(name.getText().toString().trim().equalsIgnoreCase("") || phone.getText().toString().trim().equalsIgnoreCase("") || email.getText().toString().trim().equalsIgnoreCase("") ||
-                            location.getText().toString().trim().equalsIgnoreCase("") || county.getText().toString().trim().equalsIgnoreCase("") || password.getText().toString().trim().equalsIgnoreCase("")){
+                            address.getText().toString().trim().equalsIgnoreCase("") || lname.getText().toString().trim().equalsIgnoreCase("") || password.getText().toString().trim().equalsIgnoreCase("")){
                         Toast.makeText(Register.this, "All Fields are Required", Toast.LENGTH_SHORT).show();
-                    }else {
+                    }else if(!password.getText().toString().trim().equals(cpassword.getText().toString().trim())){
+
+                        Toast.makeText(Register.this, "Passwords do not Match", Toast.LENGTH_SHORT).show();
+
+                    }
+                    else {
                         submitCompetitive();
                     }
 
@@ -103,8 +112,8 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         final String e_name = name.getText().toString().trim();
         final String e_phone = phone.getText().toString().trim();
         final String e_email = email.getText().toString().trim();
-        final String e_location = location.getText().toString().trim();
-        final String e_county = county.getText().toString().trim();
+        final String e_location = address.getText().toString().trim();
+        final String e_county = house.getText().toString().trim();
         final String e_password = password.getText().toString().trim();
         final String e_role = "Client";
         final String e_role_id = "56";
@@ -120,7 +129,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                     public void onResponse(String response) {
                         progressDialog.dismiss();
 
-                        Toast.makeText(Register.this, "Registration Successfully Completed", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(Register.this, Login.class));
                         Register.this.finish();
 
@@ -147,7 +156,6 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                 params.put("role_id", e_role_id);
                 params.put("role", e_role);
 
-
                 return params;
             }
         };
@@ -156,6 +164,12 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 
 
 
+    }
+
+    public void onBackPressed(){
+        //super.onBackPressed();
+
+        startActivity(new Intent(Register.this, Login.class));
     }
 
 

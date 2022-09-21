@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:alpha=".7"
-    android:background="@drawable/caring">
+    android:background="@drawable/bdd">
 
 
 
@@ -31,16 +31,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/caregivers_logo3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
@@ -49,15 +39,31 @@
                 android:fontFamily="monospace"
                 android:gravity="center"
                 android:padding="2dp"
-                android:text="ACTIVATE ACCOUNT"
+                android:text="DIAL A DRINK KENYA"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView676"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="Let the Drinks Come to You"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/textView6"
+                />
 
             <EditText
+                android:visibility="gone"
                 android:id="@+id/activatePhone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -172,14 +178,14 @@
                 android:background="@drawable/round_bg"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:text="Activate Account"
+                android:text="CONTINUE"
                 android:textColor="#fff"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/activatePhone" />
+                app:layout_constraintTop_toBottomOf="@+id/textView676" />
 
             <Button
                 android:id="@+id/register"
@@ -200,6 +206,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/activateBtn" />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/terms"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
