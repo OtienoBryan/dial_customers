@@ -44,7 +44,7 @@ public class AppointmentsFragment extends Fragment {
     CardView lnOffer, lnArrival,lnGift,lnPopular;
     CardView cvWhisky, cvWines, cvCognac, cvVapes;
     Button btnNew;
-    LinearLayout category, home, notification, cart, call, orders;
+    LinearLayout category, home, notification, profile, call, orders;
     TextView user_name, user_phone, user_role, user_team,activity,txtDate;
 
     RecyclerView recyclerView;
@@ -62,10 +62,12 @@ public class AppointmentsFragment extends Fragment {
         category = (LinearLayout) v.findViewById(R.id.category);
         home = (LinearLayout) v.findViewById(R.id.home);
         notification = (LinearLayout) v.findViewById(R.id.notification);
-        cart = (LinearLayout) v.findViewById(R.id.cart);
+        profile = (LinearLayout) v.findViewById(R.id.profile);
         call = (LinearLayout) v.findViewById(R.id.call);
         orders = (LinearLayout) v.findViewById(R.id.orders);
         //notice = (LinearLayout) v.findViewById(R.id.notice);
+
+        final String number = "+254790193625";
 
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
@@ -131,7 +133,7 @@ public class AppointmentsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(act, MyOrders.class));
+                startActivity(new Intent(act, Cart.class));
 
             }
         });
@@ -145,11 +147,11 @@ public class AppointmentsFragment extends Fragment {
             }
         });
 
-        cart.setOnClickListener(new View.OnClickListener() {
+        profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(act, Cart.class));
+                startActivity(new Intent(act, User.class));
 
             }
         });
@@ -175,6 +177,8 @@ public class AppointmentsFragment extends Fragment {
             }
         });
 
+
+
         //Product Category
 
         cvWhisky.setOnClickListener(new View.OnClickListener() {
@@ -198,6 +202,14 @@ public class AppointmentsFragment extends Fragment {
                 openCategory(id, cat_id, name);
             }
         });
+
+//        cvWines.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                startActivity(new Intent(act, WineCategory.class));
+//            }
+//        });
 
         cvCognac.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -288,7 +300,8 @@ public class AppointmentsFragment extends Fragment {
                                         cat.getString("abv"),
                                         cat.getString("sub"),
                                         cat.getString("brand"),
-                                        cat.getString("country")
+                                        cat.getString("country"),
+                                        cat.getString("details")
                                         //cat.getString("catcolor_id")
 
                                 ));

@@ -14,6 +14,12 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_cart"
+        android:title="search"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/action_issue"
         android:title="Issue Tracker"
         android:visible="false"

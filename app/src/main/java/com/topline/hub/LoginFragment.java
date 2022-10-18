@@ -237,7 +237,8 @@ public class LoginFragment extends Fragment {
     private void userLogin(){
         final String username = editTextUsername.getText().toString().trim();
         final String password = editTextPassword.getText().toString().trim();
-        final String deviceid = editTextDevice.getText().toString().trim();
+//        final String deviceid = editTextDevice.getText().toString().trim();
+        final String deviceid = "dev_id";
 
         progressDialog.show();
 

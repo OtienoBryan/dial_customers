@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -48,6 +49,7 @@ public class Complete extends AppCompatActivity {
 
     private ProgressBar progressBar;
     Spinner spnMethod;
+    EditText instruction, address;
 
     Button confirm, add_cart;
 
@@ -64,7 +66,6 @@ public class Complete extends AppCompatActivity {
         Intent i = this.getIntent();
         //String shelf_id = i.getExtras().getString("SHELF_KEY");
         String shelf_id = "1";
-        Spinner spnMethod;
 
         category_id = shelf_id;
 
@@ -74,19 +75,37 @@ public class Complete extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         progressBar = (ProgressBar)findViewById(R.id.progress);
 
+        instruction = (EditText) findViewById(R.id.instruction);
+        address = (EditText) findViewById(R.id.address);
         confirm = (Button) findViewById(R.id.confirm);
+        spnMethod = (Spinner) findViewById(R.id.spnMethod);
 
 
 
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
         admin_id = SharedPrefManager.getInstance(this).getUserUnit();
 
+//        confirm.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                confirm.setVisibility(View.GONE);
+//
+//                confirming();
+//            }
+//        });
+
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                confirming();
-            }
+                    if(address.getText().toString().trim().equalsIgnoreCase("")){
+                        Toast.makeText(Complete.this, "Address is required", Toast.LENGTH_SHORT).show();
+                    }else {
+                        confirming();
+                    }
+
+                }
+
         });
 
 
@@ -94,21 +113,42 @@ public class Complete extends AppCompatActivity {
         cats = new ArrayList<>();
 
         loadCategories();
-        fetchOutlet();
+//        fetchOutlet();
+        loadPay(spnMethod,daysList);
 
     }
 
-    public void fetchOutlet(){
+//    public void fetchOutlet(){
+//        daysList.clear();
+//        daysList.add("Cash on Delivery");
+//        daysList.add("Mpesa on Delivery");
+//        daysList.add("Swipe on Delivery (+2.5% processing fee)");
+//        daysList.add("Pay Online (+3% processing fee)");
+//
+////        final Spinner spnMethod = (Spinner) findViewById(R.id.spnMethod);
+//
+//        loadSpinner(spnMethod,daysList);
+//
+//    }
+
+    private void loadPay(Spinner spinner, ArrayList<String> arrayList) {
+
         daysList.clear();
         daysList.add("Cash on Delivery");
         daysList.add("Mpesa on Delivery");
         daysList.add("Swipe on Delivery (+2.5% processing fee)");
-        daysList.add("Pay Online (+3% processing fee)");
 
-        final Spinner spnMethod = (Spinner) findViewById(R.id.spnMethod);
+        if(arrayList.size() > 0) {
+            ArrayAdapter<String> spnAdapter = new ArrayAdapter(Complete.this, android.R.layout.simple_spinner_item, arrayList);
+            spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(spnAdapter);
+        }else{
+            arrayList.add("Sync to get method");
+            ArrayAdapter<String> spnAdapter = new ArrayAdapter(Complete.this, android.R.layout.simple_spinner_item, arrayList);
+            spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(spnAdapter);
 
-        loadSpinner(spnMethod,daysList);
-
+        }
     }
 
 
@@ -191,6 +231,10 @@ public class Complete extends AppCompatActivity {
         final String adminId = SharedPrefManager.getInstance(this).getUserUnit().trim();
         final String contact = SharedPrefManager.getInstance(this).getUserTelephone().trim();
 
+        final String c_inst = instruction.getText().toString().trim();
+        final String c_address = address.getText().toString().trim();
+        final String c_method = spnMethod.getSelectedItem().toString();
+
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
                 Constants.URL_COMPLETE_ORDER,
                 new Response.Listener<String>() {
@@ -216,6 +260,9 @@ public class Complete extends AppCompatActivity {
                 params.put("user_id", userId);
                 params.put("admin_id", adminId);
                 params.put("user_contact", contact);
+                params.put("instruction", c_inst);
+                params.put("address", c_address);
+                params.put("pay_method", c_method);
 
                 return params;
             }

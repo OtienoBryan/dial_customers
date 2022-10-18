@@ -1,14 +1,19 @@
 package com.topline.hub;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,11 +64,13 @@ public class ExpiryProductActivity extends AppCompatActivity {
     public static String product_sub;
     public static String product_brand;
     public static String product_country;
+    public static String product_details;
 
-    TextView outlet, p_name, p_price, p_description, sub_category, brand, country, abv;
+    TextView outlet, p_name, p_price, p_description, sub_category, brand, country, abv, p_details;
     EditText batch_no,quantity,comments;
     Button uploadReport, notify;
     LinearLayout myqty;
+    CardView cvWhatsApp, cvCall;
     ImageView image, stock, stockout;
     private ProgressDialog progressDialog;
     RecyclerView recyclerView;
@@ -88,6 +95,7 @@ public class ExpiryProductActivity extends AppCompatActivity {
         product_sub = i.getExtras().getString("PRODUCT_SUB");
         product_brand = i.getExtras().getString("PRODUCT_BRAND");
         product_country = i.getExtras().getString("PRODUCT_COUNTRY");
+        product_details = i.getExtras().getString("PRODUCT_DETAILS");
 
 
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
@@ -116,6 +124,7 @@ public class ExpiryProductActivity extends AppCompatActivity {
         quantity = (EditText)findViewById(R.id.quantity);
         p_name = (TextView)findViewById(R.id.product_name);
         p_price = (TextView)findViewById(R.id.product_price);
+        p_details = (TextView)findViewById(R.id.product_details);
         p_description = (TextView)findViewById(R.id.description);
         brand = (TextView)findViewById(R.id.brand);
         sub_category = (TextView)findViewById(R.id.sub_category);
@@ -125,6 +134,8 @@ public class ExpiryProductActivity extends AppCompatActivity {
         stock = (ImageView) findViewById(R.id.stock);
         stockout = (ImageView) findViewById(R.id.stockout);
         myqty = (LinearLayout) findViewById(R.id.myqty);
+        cvWhatsApp = (CardView) findViewById(R.id.cvWhatsApp);
+        cvCall = (CardView) findViewById(R.id.cvCall);
 
         int p_status = Integer.parseInt(product_status);
 
@@ -150,12 +161,48 @@ public class ExpiryProductActivity extends AppCompatActivity {
         sub_category.setText(product_sub);
         brand.setText(product_brand);
         country.setText(product_country);
+        p_details.setText(product_details);
         abv.setText("ABV "+product_abv +"%");
 
 
         cd = new ConnectionDetector(ExpiryProductActivity.this);
 
         cd = new ConnectionDetector(getApplicationContext());
+
+        cvWhatsApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phone = "+254 723 688108";
+                String message = "Hello, I would like to order " + product_name + "@" + product_price;
+                String url = "https://api.whatsapp.com/send?phone="+phone+ "&text=" + message;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+
+                startActivity(i);
+
+            }
+        });
+
+        cvCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phone = "+254 723 688108";
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+
+                if (ActivityCompat.checkSelfPermission(ExpiryProductActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+                    //ActivityCompat.requestPermissions(context, new String[] { permission }, requestCode);
+
+                    Toast.makeText(ExpiryProductActivity.this, "Enable call permission in APP Settings", Toast.LENGTH_SHORT).show();
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+
+                    return;
+                }
+                startActivity(intent);
+
+            }
+        });
 
 
 
@@ -210,7 +257,8 @@ public class ExpiryProductActivity extends AppCompatActivity {
                                         cat.getString("abv"),
                                         cat.getString("sub"),
                                         cat.getString("brand"),
-                                        cat.getString("country")
+                                        cat.getString("country"),
+                                        cat.getString("details")
                                         //cat.getString("catcolor_id")
 
                                 ));
@@ -298,6 +346,12 @@ public class ExpiryProductActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void onBackPressed(){
+        //super.onBackPressed();
+
+        startActivity(new Intent(ExpiryProductActivity.this, MainActivity.class));
     }
 
     @Override

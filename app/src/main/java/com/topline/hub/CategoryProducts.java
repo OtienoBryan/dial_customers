@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class CategoryProducts extends AppCompatActivity {
     public static String category_id;
     public static String cat_id;
     public static String cat_name;
+    LinearLayout lnCat;
 
     //a list to store all the products
     List<ProductModel> cats;
@@ -71,6 +73,7 @@ public class CategoryProducts extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         progressBar = (ProgressBar)findViewById(R.id.progress);
         back_to_report = (Button) findViewById(R.id.back_to_report);
+        lnCat = (LinearLayout) findViewById(R.id.lnCat);
 
 
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
@@ -81,6 +84,10 @@ public class CategoryProducts extends AppCompatActivity {
         cats = new ArrayList<>();
 
         loadCategories();
+
+        if(category_id.equals("17")){
+            lnCat.setVisibility(View.VISIBLE);
+        }
 
 
 
@@ -129,7 +136,8 @@ public class CategoryProducts extends AppCompatActivity {
                                         cat.getString("abv"),
                                         cat.getString("sub"),
                                         cat.getString("brand"),
-                                        cat.getString("country")
+                                        cat.getString("country"),
+                                        cat.getString("details")
 
                                         //cat.getString("catcolor_id")
 

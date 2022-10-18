@@ -73,6 +73,7 @@ public class Constants {
     public static final String URL_COMPE_ACTIVITY = ROOT_URL+"compeActivity.php";
     public static final String URL_POSM_REPORT = ROOT_URL+"posmReport.php";
     public static final String URL_POST_ORDER = ROOT_URL+"product_expiryReport.php";
+    public static final String URL_POST_ORDER_DELETE = ROOT_URL+"item_deletes.php";
     public static final String URL_PRICE_WATCH_REPORT = ROOT_URL+"price_watchReport.php";
     public static final String URL_QUALITY_REPORT = ROOT_URL+"qualityReport.php";
     public static final String URL_MARKET_REPORT = ROOT_URL+"marketReport.php";

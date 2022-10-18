@@ -16,11 +16,13 @@ public class ProductModel {
     private String sub;
     private String brand;
     private String country;
+    private String details;
+
 
     //private String catcolor_id;
 
 
-    public ProductModel(int id, String cat_id, String name, String image, String price, String description, String usage, String status, String abv, String sub, String brand, String country) {
+    public ProductModel(int id, String cat_id, String name, String image, String price, String description, String usage, String status, String abv, String sub, String brand, String country, String details) {
         this.id = id;
         this.cat_id = cat_id;
         this.name = name;
@@ -33,6 +35,7 @@ public class ProductModel {
         this.sub = sub;
         this.brand = brand;
         this.country = country;
+        this.details = details;
         //this.catcolor_id = catcolor_id;
 
     }
@@ -82,6 +85,8 @@ public class ProductModel {
     }
 
     public String getCountry() { return country; }
+
+    public String getDetails() { return details; }
 
     /*public String getCatcolor_id() {
         return catcolor_id;

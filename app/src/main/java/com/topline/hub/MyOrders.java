@@ -79,28 +79,10 @@ public class MyOrders extends AppCompatActivity {
 
         loadCategories();
 
-//        checkout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                checking();
-//            }
-//        });
-
-//        add_cart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(MyOrders.this, ProductCat.class));
-//            }
-//        });
-
-
-
     }
     private void loadCategories() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_ORDERS,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_ORDERS+ user_id,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

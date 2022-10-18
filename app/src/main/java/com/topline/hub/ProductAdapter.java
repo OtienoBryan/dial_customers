@@ -49,7 +49,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             @Override
             public void onClick(View v) {
 
-                openDetailActivity(id.toString(), cat.getCat_id(),cat.getName(), cat.getImage(),  cat.getPrice(), cat.getDescription(), cat.getUsage(), cat.getStatus(), cat.getAbv(), cat.getSub(), cat.getBrand(), cat.getCountry() );
+                openDetailActivity(id.toString(), cat.getCat_id(),cat.getName(), cat.getImage(),  cat.getPrice(), cat.getDescription(), cat.getUsage(), cat.getStatus(), cat.getAbv(), cat.getSub(), cat.getBrand(), cat.getCountry(), cat.getDetails() );
             }
         });
 
@@ -82,7 +82,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         }
     }
 
-    private void openDetailActivity(String product_id,String product_code, String product_name, String product_image, String price, String description, String usage, String status, String abv, String sub, String brand, String country){
+    private void openDetailActivity(String product_id,String product_code, String product_name, String product_image, String price, String description, String usage, String status, String abv, String sub, String brand, String country, String details){
 
 
 
@@ -102,6 +102,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         i.putExtra("PRODUCT_SUB", sub);
         i.putExtra("PRODUCT_BRAND", brand);
         i.putExtra("PRODUCT_COUNTRY", country);
+        i.putExtra("PRODUCT_DETAILS", details);
 
         mCtx.startActivity(i);
 

@@ -788,12 +788,12 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Orders"
+                android:text="Cart"
                 android:textSize="14sp"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/cart"
+            android:id="@+id/profile"
             android:layout_width="80dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="15dp"
@@ -805,12 +805,12 @@
                 android:layout_height="30dp"
                 android:scaleType="fitCenter"
                 android:layout_gravity="center"
-                android:src="@drawable/cart" />
+                android:src="@drawable/profi" />
             <TextView
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cart" />
+                android:text="Profile" />
         </LinearLayout>
 
     </LinearLayout>

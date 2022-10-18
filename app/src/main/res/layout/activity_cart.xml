@@ -33,10 +33,11 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
+        android:id="@+id/lntonic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/checkout"
-        android:layout_marginBottom="4dp">
+        android:layout_marginBottom="8dp">
 
         <ImageView
             android:layout_width="80dp"

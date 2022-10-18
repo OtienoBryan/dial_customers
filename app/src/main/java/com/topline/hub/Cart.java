@@ -2,12 +2,16 @@ package com.topline.hub;
 
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.media.Image;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -39,6 +43,7 @@ public class Cart extends AppCompatActivity {
 
     //the recyclerview
     RecyclerView recyclerView;
+    LinearLayout lnTonic;
 
     private ProgressBar progressBar;
 
@@ -67,6 +72,7 @@ public class Cart extends AppCompatActivity {
         progressBar = (ProgressBar)findViewById(R.id.progress);
         checkout = (Button) findViewById(R.id.checkout);
         add_cart = (Button) findViewById(R.id.add_cart);
+        lnTonic = (LinearLayout) findViewById(R.id.lntonic);
 
 
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
@@ -81,10 +87,19 @@ public class Cart extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 checking();
             }
         });
+
+        lnTonic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lnTonic.setEnabled(false);
+                submitTonic();
+            }
+        });
+
+
 
         add_cart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,6 +192,62 @@ public class Cart extends AppCompatActivity {
             finish();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void submitTonic(){
+
+        final String e_quantity = "1";
+        final String e_product_name = "Tonic Water 500ml bottle";
+        final String e_product_code = "368";
+        final String e_product_price = "100";
+        final String e_product_image = "https://ik.imagekit.io/wcyvhkbdjw4r/Dial_A_Drink/tonic_ebnFJx_7Q.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1656410684685";
+
+        final String userId = SharedPrefManager.getInstance(this).getUserId().toString().trim();
+        final String userName = SharedPrefManager.getInstance(this).getUsername().trim();
+        final String adminId = SharedPrefManager.getInstance(this).getUserUnit().trim();
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                Constants.URL_POST_ORDER,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Toast.makeText(Cart.this, "Tonic Added to Cart", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(Cart.this, Cart.class));
+                        Cart.this.finish();
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Toast.makeText(Cart.this, "Error Occurred Try again", Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("user_name", userName);
+                params.put("user_id", userId);
+                params.put("admin_id", adminId);
+
+                params.put("product_name", e_product_name);
+                params.put("product_code", e_product_code);
+                params.put("product_price", e_product_price);
+                params.put("product_image", e_product_image);
+                params.put("quantity", e_quantity);
+
+                return params;
+            }
+        };
+
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+
+
+
     }
 
     private void checking(){

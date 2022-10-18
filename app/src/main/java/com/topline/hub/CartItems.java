@@ -86,7 +86,7 @@ public class CartItems extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                checkout.setVisibility(View.GONE);
                 checking();
             }
         });
@@ -138,7 +138,7 @@ public class CartItems extends AppCompatActivity {
                             }
 
                             //creating adapter object and setting it to recyclerview
-                            CartAdapter adapter = new CartAdapter(CartItems.this, cats);
+                            ItemsAdapter adapter = new ItemsAdapter(CartItems.this, cats);
                             recyclerView.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -872,6 +872,9 @@ public class MainActivity extends AppCompatActivity {
         }else if(id == R.id.ses){
             startActivity(new Intent(MainActivity.this, ExpiryProductListActivity.class));
             return  true;
+        }else if(id == R.id.cart){
+            startActivity(new Intent(MainActivity.this, Cart.class));
+            return  true;
         }else if(id == R.id.orders){
             startActivity(new Intent(MainActivity.this, AppointmentsActivity.class));
             return  true;

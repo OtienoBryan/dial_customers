@@ -110,13 +110,12 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     private void submitCompetitive(){
 
         final String e_name = name.getText().toString().trim();
+        final String l_name = lname.getText().toString().trim();
         final String e_phone = phone.getText().toString().trim();
         final String e_email = email.getText().toString().trim();
-        final String e_location = address.getText().toString().trim();
-        final String e_county = house.getText().toString().trim();
+        final String e_address = address.getText().toString().trim();
+        final String e_house = house.getText().toString().trim();
         final String e_password = password.getText().toString().trim();
-        final String e_role = "Client";
-        final String e_role_id = "56";
 
 
         progressDialog.setMessage("Submitting please Wait...");
@@ -147,14 +146,13 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
 
-                params.put("name", e_name);
+                params.put("fname", e_name);
+                params.put("lname", l_name);
                 params.put("phone", e_phone);
                 params.put("email", e_email);
-                params.put("location", e_location);
-                params.put("county", e_county);
+                params.put("address", e_address);
+                params.put("house", e_house);
                 params.put("password", e_password);
-                params.put("role_id", e_role_id);
-                params.put("role", e_role);
 
                 return params;
             }
