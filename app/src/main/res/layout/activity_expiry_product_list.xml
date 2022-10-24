@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10.0dip"
         android:layout_marginBottom="10.0dip"
-        android:hint="Search Product" />
+        android:hint="What would you like?" />
     <ProgressBar
         android:id="@+id/progress"
         android:layout_centerInParent="true"

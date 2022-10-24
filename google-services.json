@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "924998480993",
-    "project_id": "pharmacy-d1722",
-    "storage_bucket": "pharmacy-d1722.appspot.com"
+    "project_number": "420240464097",
+    "project_id": "dial-4139f",
+    "storage_bucket": "dial-4139f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:924998480993:android:f5fd669520a634bbb9a620",
+        "mobilesdk_app_id": "1:420240464097:android:73b4f0a50aeeaf37e23fa0",
         "android_client_info": {
-          "package_name": "com.litchman.pharmacy"
+          "package_name": "com.litchman.dialcustomer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "924998480993-lkep4eghdrjjc5bso91v2nmd585k31lt.apps.googleusercontent.com",
+          "client_id": "420240464097-oukciklvuveemaie42hlsmqhp8rmkk6d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.litchman.pharmacy",
+            "package_name": "com.litchman.dialcustomer",
             "certificate_hash": "9163149689f074566424b706c10990147a0cb365"
           }
         },
         {
-          "client_id": "924998480993-dlvdtfgp8ovfv38ld0joqu48ct7g4vru.apps.googleusercontent.com",
+          "client_id": "420240464097-3uvm31q73ahiktpfk66faeorpsv17g6g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCKFU_n1k8y98cL8iI0rnT1IX1xZNku29s"
+          "current_key": "AIzaSyDYQunfMnck_iN61GiTMsYxdH3IckDz9P8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "924998480993-dlvdtfgp8ovfv38ld0joqu48ct7g4vru.apps.googleusercontent.com",
+              "client_id": "420240464097-3uvm31q73ahiktpfk66faeorpsv17g6g.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

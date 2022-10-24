@@ -52,7 +52,7 @@ public class ExpiryProductListActivity extends AppCompatActivity {
         userId = SharedPrefManager.getInstance(this).getUserId().toString();
         admin_id = SharedPrefManager.getInstance(this).getUserUnit();
 
-        setTitle("Search Products");
+        setTitle("Search Drinks");
 
 
         editSearch.addTextChangedListener(new TextWatcher() {

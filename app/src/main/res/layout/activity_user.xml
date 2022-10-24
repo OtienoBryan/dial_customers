@@ -23,6 +23,7 @@
             android:layout_gravity="center" />
 
         <TextView
+            android:id="@+id/my_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="My Name"
@@ -32,6 +33,7 @@
             android:textStyle="bold"/>
 
         <TextView
+            android:id="@+id/phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0712345678"
@@ -76,7 +78,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:visibility="gone"
         android:id="@+id/ln2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,13 +91,13 @@
             android:layout_width="30dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_locat" />
+            android:src="@drawable/heart" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Manage Addresses"
+            android:text="My Favourite Drinks"
             android:paddingStart="6dp"
             android:textColor="@color/black"
             android:textStyle="bold" />

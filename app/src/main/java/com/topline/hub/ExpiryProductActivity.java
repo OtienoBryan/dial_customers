@@ -1,6 +1,7 @@
 package com.topline.hub;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
@@ -71,11 +72,12 @@ public class ExpiryProductActivity extends AppCompatActivity {
     Button uploadReport, notify;
     LinearLayout myqty;
     CardView cvWhatsApp, cvCall;
-    ImageView image, stock, stockout;
+    ImageView image, stock, stockout, fav;
     private ProgressDialog progressDialog;
     RecyclerView recyclerView;
     List<ProductModel> cats;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,6 +134,7 @@ public class ExpiryProductActivity extends AppCompatActivity {
         abv = (TextView)findViewById(R.id.abv);
         image = (ImageView) findViewById(R.id.image);
         stock = (ImageView) findViewById(R.id.stock);
+        fav = (ImageView) findViewById(R.id.fav);
         stockout = (ImageView) findViewById(R.id.stockout);
         myqty = (LinearLayout) findViewById(R.id.myqty);
         cvWhatsApp = (CardView) findViewById(R.id.cvWhatsApp);
@@ -223,6 +226,30 @@ public class ExpiryProductActivity extends AppCompatActivity {
             }
         });
 
+        notify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (cd.isConnectingToInternet()) {
+                    notify_me();
+                } else {
+                    Toast.makeText(ExpiryProductActivity.this, "No Internet Connection !", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        fav.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (cd.isConnectingToInternet()) {
+                    favorite();
+                } else {
+                    Toast.makeText(ExpiryProductActivity.this, "No Internet Connection !", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
     }
 
     private void loadCategories() {
@@ -286,8 +313,6 @@ public class ExpiryProductActivity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
-
-
     private void submitExpiryTracker(){
 
         final String e_quantity = quantity.getText().toString().trim();
@@ -343,6 +368,120 @@ public class ExpiryProductActivity extends AppCompatActivity {
         };
 
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+
+    }
+    private void notify_me(){
+
+            final String e_quantity = quantity.getText().toString().trim();
+            final String e_product_name = product_name;
+            final String e_product_code = product_code;
+            final String e_product_price = product_price;
+            final String e_product_image = product_image;
+
+            final String userId = SharedPrefManager.getInstance(this).getUserId().toString().trim();
+            final String userName = SharedPrefManager.getInstance(this).getUsername().trim();
+            final String adminId = SharedPrefManager.getInstance(this).getUserUnit().trim();
+
+
+            progressDialog.setMessage("Please Wait...");
+            progressDialog.show();
+
+            StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                    Constants.URL_POST_NOTIFY,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            progressDialog.dismiss();
+
+                            Toast.makeText(ExpiryProductActivity.this, "Request sent Successfully, You will be notified soon", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(ExpiryProductActivity.this, MainActivity.class));
+                            ExpiryProductActivity.this.finish();
+
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            progressDialog.hide();
+                            Toast.makeText(ExpiryProductActivity.this, "Error Occurred Try again", Toast.LENGTH_LONG).show();
+                        }
+                    }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+
+                    params.put("user_name", userName);
+                    params.put("user_id", userId);
+                    params.put("admin_id", adminId);
+
+                    params.put("product_name", e_product_name);
+                    params.put("product_code", e_product_code);
+                    params.put("product_price", e_product_price);
+                    params.put("product_image", e_product_image);
+                    params.put("quantity", e_quantity);
+
+                    return params;
+                }
+            };
+
+            RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+
+
+
+
+    }
+
+    private void favorite(){
+
+        final String e_quantity = "1";
+        final String e_product_name = product_name;
+        final String e_product_code = product_code;
+        final String e_product_price = product_price;
+        final String e_product_image = product_image;
+
+        final String userId = SharedPrefManager.getInstance(ExpiryProductActivity.this).getUserId().toString().trim();
+        final String userName = SharedPrefManager.getInstance(ExpiryProductActivity.this).getUsername().trim();
+        final String adminId = SharedPrefManager.getInstance(ExpiryProductActivity.this).getUserUnit().trim();
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                Constants.URL_POST_FAVORITE,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Toast.makeText(ExpiryProductActivity.this, "Added to Favourite List", Toast.LENGTH_LONG).show();
+//                        startActivity(new Intent(Cart.this, Cart.class));
+//                        Cart.this.finish();
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        Toast.makeText(ExpiryProductActivity.this, "Error Occurred Try again", Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("user_name", userName);
+                params.put("user_id", userId);
+                params.put("admin_id", adminId);
+
+                params.put("product_name", e_product_name);
+                params.put("product_code", e_product_code);
+                params.put("product_price", e_product_price);
+                params.put("product_image", e_product_image);
+                params.put("quantity", e_quantity);
+
+                return params;
+            }
+        };
+
+        RequestHandler.getInstance(ExpiryProductActivity.this).addToRequestQueue(stringRequest);
 
 
 

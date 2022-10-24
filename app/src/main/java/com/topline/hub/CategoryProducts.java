@@ -1,12 +1,22 @@
 package com.topline.hub;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +55,8 @@ public class CategoryProducts extends AppCompatActivity {
     RecyclerView recyclerView;
 
     private ProgressBar progressBar;
+    private final int MY_PERMISSIONS_CALL= 7;
+
 
     Button back_to_report;
 
@@ -89,6 +101,27 @@ public class CategoryProducts extends AppCompatActivity {
             lnCat.setVisibility(View.VISIBLE);
         }
 
+        if (ContextCompat.checkSelfPermission(CategoryProducts.this, Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) CategoryProducts.this,
+                    Manifest.permission.CALL_PHONE)) {
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+            } else {
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions((Activity) CategoryProducts.this,
+                        new String[]{Manifest.permission.CALL_PHONE},
+                        MY_PERMISSIONS_CALL);
+
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        }
+
 
 
         back_to_report.setOnClickListener(new View.OnClickListener() {
@@ -96,6 +129,14 @@ public class CategoryProducts extends AppCompatActivity {
             public void onClick(View v) {
 
                 startActivity(new Intent(CategoryProducts.this, MainActivity.class));
+            }
+        });
+
+        lnCat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(CategoryProducts.this, WineCategory.class));
             }
         });
 
@@ -173,15 +214,47 @@ public class CategoryProducts extends AppCompatActivity {
 //    }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.topping, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if(id == android.R.id.home){
-            finish();
+        if (id == R.id.ses) {
+            startActivity(new Intent(CategoryProducts.this, ExpiryProductListActivity.class));
+
+            return true;
+        }else if(id == R.id.call){
+            call();
+            return  true;
+        }else if(id == R.id.orders){
+            //startActivity(new Intent(MainActivity.this, AppointmentsActivity.class));
+            return  true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void call(){
+
+        String phone = "+254 723 688108";
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+
+        if (ActivityCompat.checkSelfPermission(CategoryProducts.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+            //ActivityCompat.requestPermissions(context, new String[] { permission }, requestCode);
+
+            Toast.makeText(CategoryProducts.this, "Enable call permission in APP Settings", Toast.LENGTH_SHORT).show();
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+
+            return;
+        }
+        startActivity(intent);
+
+
     }
 
 

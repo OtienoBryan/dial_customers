@@ -73,7 +73,10 @@ public class Constants {
     public static final String URL_COMPE_ACTIVITY = ROOT_URL+"compeActivity.php";
     public static final String URL_POSM_REPORT = ROOT_URL+"posmReport.php";
     public static final String URL_POST_ORDER = ROOT_URL+"product_expiryReport.php";
+    public static final String URL_POST_NOTIFY = ROOT_URL+"post_notify.php";
+    public static final String URL_POST_FAVORITE = ROOT_URL+"post_favorite.php";
     public static final String URL_POST_ORDER_DELETE = ROOT_URL+"item_deletes.php";
+    public static final String URL_POST_FAV_DELETE = ROOT_URL+"fav_deletes.php";
     public static final String URL_PRICE_WATCH_REPORT = ROOT_URL+"price_watchReport.php";
     public static final String URL_QUALITY_REPORT = ROOT_URL+"qualityReport.php";
     public static final String URL_MARKET_REPORT = ROOT_URL+"marketReport.php";
@@ -95,6 +98,7 @@ public class Constants {
 
     public static final String URL_MY_CATEGORY = ROOT_URL+"category_products.php?clickeditem=";
     public static final String URL_CART = ROOT_URL+"cart.php?clickeditem=";
+    public static final String URL_FAV = ROOT_URL+"get_favourites.php?clickeditem=";
     public static final String URL_ORDER_ITEMS = ROOT_URL+"order_items.php?clickeditem=";
     public static final String URL_ORDERS = ROOT_URL+"my_orders.php?clickeditem=";
     public static final String URL_COMPLETE = ROOT_URL+"complete.php?clickeditem=";
@@ -123,6 +127,10 @@ public class Constants {
     public static final String URL_REPORT_ORDER = ROOT_URL+"postTeamleaderOrder.php";
     public static final String URL_REPORT_DELIVERY = ROOT_URL+"postTeamleaderDelivery.php";
     public static final String URL_REPORT_BA = ROOT_URL+"postBa.php";
+
+    //wine Categories
+    public static final String URL_WINE_COLOR= ROOT_URL+"wine_color.php?clickeditem=";
+    public static final String URL_WINE_TASTE= ROOT_URL+"wine_taste.php?clickeditem=";
 
 
 

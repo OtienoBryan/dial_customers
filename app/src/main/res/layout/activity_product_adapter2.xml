@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/fav"
+                    android:id="@+id/b_fav"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_marginStart="8dp"
@@ -53,7 +53,7 @@
                     android:src="@drawable/win"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/fav" />
+                    app:layout_constraintTop_toBottomOf="@+id/b_fav" />
 
                 <TextView
                     android:id="@+id/txtProductCategory"
@@ -77,6 +77,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/txtProductCategory" />
 
                 <Button
+                    android:id="@+id/add_cart"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginStart="16dp"
@@ -88,6 +89,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/price" />
+
+                <ImageView
+                    android:id="@+id/stockout"
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/stockout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_cart"
+                    />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
