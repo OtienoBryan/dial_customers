@@ -1,5 +1,6 @@
 package com.topline.hub;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -45,6 +46,7 @@ public class MyOrders extends AppCompatActivity {
 
     Button checkout, add_cart;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

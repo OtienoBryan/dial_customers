@@ -51,8 +51,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
     public void onBindViewHolder(final ProductViewHolder holder, int position) {
         final CartModel cat = cats.get(position);
 
-
-
         final Integer id = cat.getId();
 
         //final String cat_id = cat.getCat_id();
@@ -70,6 +68,22 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
             }
         });
 
+        holder.add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                add(id.toString(), cat.getCat_id(),cat.getName());
+            }
+        });
+
+        holder.subtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                subtract(id.toString(), cat.getCat_id(),cat.getName());
+            }
+        });
+
 
 
     }
@@ -84,7 +98,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
         TextView cat_name, quantity, price, subTotal;
         // RelativeLayout relativeLayout;
         CardView cardView;
-        ImageView delete;
+        ImageView delete, add, subtract;
         ImageView product_image;
 
 
@@ -97,108 +111,101 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
             quantity = itemView.findViewById(R.id.txtQuantity);
             price = itemView.findViewById(R.id.unitPrice);
             delete = itemView.findViewById(R.id.imgDelete);
+            add = itemView.findViewById(R.id.add);
+            subtract = itemView.findViewById(R.id.subtract);
             subTotal = itemView.findViewById(R.id.subTotal);
 
 
         }
     }
 
-//    public void updateQuantity() {
-//        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(mCtx);
-//        LayoutInflater inflater = mCtx.getLayoutInflater();
-//        final View dialogView = inflater.inflate(R.layout.custom_dialog, null);
-//        dialogBuilder.setView(dialogView);
-//
-//        final EditText edt = (EditText) dialogView.findViewById(R.id.edit1);
-//
-//        dialogBuilder.setTitle("Update Quantity");
-//        dialogBuilder.setMessage("Update Quantity");
-//        dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int whichButton) {
-//                //do something with edt.getText().toString();
-//
-//                final String appointment_id = appoint_id; // Outlet Id is the appointment ID.
-//                final String cancel_reson = edt.getText().toString().trim();
-//
-//
-//                StringRequest stringRequest = new StringRequest(
-//                        Request.Method.POST,
-//                        Constants.URL_CANCEL,
-//                        new Response.Listener<String>() {
-//                            @Override
-//                            public void onResponse(String response) {
-//
-//                                try {
-//                                    JSONObject obj =new JSONObject(response);
-//                                    if (!obj.getBoolean("error")){
-//
-//                                        Toast.makeText(
-//                                                mCtx,
-//                                                obj.getString("message"),
-//                                                Toast.LENGTH_LONG
-//                                        ).show();
-//
-//
-//                                        mCtx.startActivity(new Intent (mCtx,Cart.class));
-//
-//
-//
-//                                    }else {
-//                                        Toast.makeText(
-//                                                mCtx,
-//                                                obj.getString("message"),
-//                                                Toast.LENGTH_LONG
-//                                        ).show();
-//                                    }
-//
-//
-//                                }catch (JSONException e){
-//                                    e.printStackTrace();
-//
-//                                }
-//
-//
-//                            }
-//                        },
-//                        new Response.ErrorListener() {
-//                            @Override
-//                            public void onErrorResponse(VolleyError error) {
-//
-//                                Toast.makeText(
-//                                        mCtx,
-//                                        "Error Ocured try again",
-//                                        Toast.LENGTH_LONG
-//                                ).show();
-//
-//                            }
-//                        }
-//
-//                ){
-//
-//                    @Override
-//                    protected Map<String, String> getParams() throws AuthFailureError {
-//                        Map<String, String> params = new HashMap<>();
-//                        //params.put("user_id", user_id);
-//                        params.put("appointment_id", appointment_id);
-//                        params.put("cancel_reson", cancel_reson);
-//
-//                        return params;
-//
-//                    }
-//                };
-//
-//                RequestHandler.getInstance(mCtx).addToRequestQueue(stringRequest);
-//
-//            }
-//        });
-//        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int whichButton) {
-//                //pass
-//            }
-//        });
-//        AlertDialog b = dialogBuilder.create();
-//        b.show();
-//    }
+    private void add(String id, String cat_id, String name){
+        final String e_product_id = cat_id;
+        final String e_id = id;
+
+        final String userId = SharedPrefManager.getInstance(mCtx).getUserId().toString().trim();
+        final String userName = SharedPrefManager.getInstance(mCtx).getUsername().trim();
+        final String adminId = SharedPrefManager.getInstance(mCtx).getUserUnit().trim();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                Constants.URL_ADD_QUANTITY,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        //Toast.makeText(mCtx, "Quantity Updated", Toast.LENGTH_SHORT).show();
+                        mCtx.startActivity(new Intent (mCtx,Cart.class));
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        //Toast.makeText(mCtx, "Error Occurred Try again", Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("user_name", userName);
+                params.put("user_id", userId);
+                params.put("admin_id", adminId);
+
+                params.put("my_id", e_id);
+
+
+                return params;
+            }
+        };
+
+        RequestHandler.getInstance(mCtx).addToRequestQueue(stringRequest);
+    }
+
+    private void subtract(String id, String cat_id, String name){
+        final String e_product_id = cat_id;
+        final String e_id = id;
+
+        final String userId = SharedPrefManager.getInstance(mCtx).getUserId().toString().trim();
+        final String userName = SharedPrefManager.getInstance(mCtx).getUsername().trim();
+        final String adminId = SharedPrefManager.getInstance(mCtx).getUserUnit().trim();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                Constants.URL_SUBTRACT_QUANTITY,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        //Toast.makeText(mCtx, "Quantity Updated", Toast.LENGTH_SHORT).show();
+                        mCtx.startActivity(new Intent (mCtx,Cart.class));
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        //Toast.makeText(mCtx, "Error Occurred Try again", Toast.LENGTH_SHORT).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("user_name", userName);
+                params.put("user_id", userId);
+                params.put("admin_id", adminId);
+
+                params.put("my_id", e_id);
+
+
+                return params;
+            }
+        };
+
+        RequestHandler.getInstance(mCtx).addToRequestQueue(stringRequest);
+    }
 
     private void delete(String id, String cat_id, String name){
         final String e_product_id = cat_id;
@@ -213,7 +220,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
                     @Override
                     public void onResponse(String response) {
 
-                        Toast.makeText(mCtx, "Item Deleted", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mCtx, "Item Deleted", Toast.LENGTH_SHORT).show();
                         mCtx.startActivity(new Intent (mCtx,Cart.class));
 
                     }
@@ -222,7 +229,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ProductViewHol
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        Toast.makeText(mCtx, "Error Occurred Try again", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(mCtx, "Error Occurred Try again", Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override

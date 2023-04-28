@@ -1,5 +1,6 @@
 package com.topline.hub;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ import java.util.Map;
 
 import retrofit2.Callback;
 
-public class Complete extends AppCompatActivity {
+public class TerritoryFragment extends AppCompatActivity {
 
     public static String user_id;
     public static String admin_id;
@@ -53,12 +54,13 @@ public class Complete extends AppCompatActivity {
 
     Button confirm, add_cart;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         outlet_name = SharedPrefManager.getInstance(this).getOutletName();
         setTitle("Check Out");
-        setContentView(R.layout.activity_complete);
+        setContentView(R.layout.activity_territory_fragment);
         //getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -87,13 +89,13 @@ public class Complete extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    if(address.getText().toString().trim().equalsIgnoreCase("")){
-                        Toast.makeText(Complete.this, "Address is required", Toast.LENGTH_SHORT).show();
-                    }else {
-                        confirming();
-                    }
-
+                if(address.getText().toString().trim().equalsIgnoreCase("")){
+                    Toast.makeText(TerritoryFragment.this, "Address is required", Toast.LENGTH_SHORT).show();
+                }else {
+                    confirming();
                 }
+
+            }
 
         });
 
@@ -101,7 +103,7 @@ public class Complete extends AppCompatActivity {
         //initializing the productlist
         cats = new ArrayList<>();
 
-        loadCategories();
+        //loadCategories();
 //        fetchOutlet();
         loadPay(spnMethod,daysList);
 
@@ -115,77 +117,22 @@ public class Complete extends AppCompatActivity {
         daysList.add("Swipe on Delivery (+2.5% processing fee)");
 
         if(arrayList.size() > 0) {
-            ArrayAdapter<String> spnAdapter = new ArrayAdapter(Complete.this, android.R.layout.simple_spinner_item, arrayList);
+            ArrayAdapter<String> spnAdapter = new ArrayAdapter(TerritoryFragment.this, android.R.layout.simple_spinner_item, arrayList);
             spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(spnAdapter);
         }else{
             arrayList.add("Sync to get method");
-            ArrayAdapter<String> spnAdapter = new ArrayAdapter(Complete.this, android.R.layout.simple_spinner_item, arrayList);
+            ArrayAdapter<String> spnAdapter = new ArrayAdapter(TerritoryFragment.this, android.R.layout.simple_spinner_item, arrayList);
             spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(spnAdapter);
 
         }
     }
 
-
-    private void loadCategories() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_COMPLETE + user_id,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        progressBar.setVisibility(View.GONE);
-
-                        try {
-                            //converting the string to json array object
-                            JSONArray array = new JSONArray(response);
-
-                            //traversing through all the object
-                            for (int i = 0; i < array.length(); i++) {
-
-                                //getting product object from json array
-                                JSONObject cat = array.getJSONObject(i);
-
-                                //adding the Task to Task list
-                                cats.add(new CompleteModel(
-                                        cat.getInt("id"),
-                                        cat.getString("cat_id"),
-                                        cat.getString("customer_name"),
-                                        cat.getString("territory_id"),
-                                        cat.getString("territory_name"),
-                                        cat.getString("delivery_fee"),
-                                        cat.getString("total")
-                                        //cat.getString("catcolor_id")
-
-                                ));
-                            }
-
-                            //creating adapter object and setting it to recyclerview
-                            CompleteAdapter adapter = new CompleteAdapter(Complete.this, cats);
-                            recyclerView.setAdapter(adapter);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        progressBar.setVisibility(View.GONE);
-                        //Toast.makeText(Complete.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-        //adding our stringrequest to queue
-        Volley.newRequestQueue(this).add(stringRequest);
-    }
-
     public void onBackPressed(){
         //super.onBackPressed();
 
-        startActivity(new Intent(Complete.this, Cart.class));
+        startActivity(new Intent(TerritoryFragment.this, Cart.class));
     }
 
     @Override
@@ -217,8 +164,8 @@ public class Complete extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        startActivity(new Intent(Complete.this, MainActivity.class));
-                        Complete.this.finish();
+                        startActivity(new Intent(TerritoryFragment.this, MainActivity.class));
+                        TerritoryFragment.this.finish();
 
                     }
                 },
@@ -252,12 +199,12 @@ public class Complete extends AppCompatActivity {
 
     private void loadSpinner(Spinner spinner, ArrayList<String> arrayList) {
         if(arrayList.size() > 0) {
-            ArrayAdapter<String> spnAdapter = new ArrayAdapter(Complete.this, android.R.layout.simple_spinner_item, arrayList);
+            ArrayAdapter<String> spnAdapter = new ArrayAdapter(TerritoryFragment.this, android.R.layout.simple_spinner_item, arrayList);
             spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(spnAdapter);
         }else{
             arrayList.add("Sync to get outlets");
-            ArrayAdapter<String> spnAdapter = new ArrayAdapter(Complete.this, android.R.layout.simple_spinner_item, arrayList);
+            ArrayAdapter<String> spnAdapter = new ArrayAdapter(TerritoryFragment.this, android.R.layout.simple_spinner_item, arrayList);
             spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner.setAdapter(spnAdapter);
 

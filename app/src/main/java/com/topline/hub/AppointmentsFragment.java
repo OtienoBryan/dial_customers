@@ -54,8 +54,6 @@ public class AppointmentsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_appointments, container, false);
         View v = inflater.inflate(R.layout.myhome, container, false);
         act=getActivity();
 
@@ -118,8 +116,6 @@ public class AppointmentsFragment extends Fragment {
             }
         });
 
-
-
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,7 +138,7 @@ public class AppointmentsFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(act, Notice.class));
+                startActivity(new Intent(act, MyOrders.class));
 
             }
         });
@@ -320,7 +316,7 @@ public class AppointmentsFragment extends Fragment {
                     public void onErrorResponse(VolleyError error) {
 
                         //progressBar.setVisibility(View.GONE);
-                        Toast.makeText(act, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(act, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -342,9 +338,6 @@ public class AppointmentsFragment extends Fragment {
 
 
     private void openCategory(String id, String cat_id, String name){
-
-
-
 
         Intent i = new Intent(act, CategoryProducts.class);
 

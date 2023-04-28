@@ -9,6 +9,12 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/cart"
+        android:icon="@drawable/ic_cart"
+        android:title="search"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/call"
         android:icon="@drawable/ic_phonecv"
         android:title="call"

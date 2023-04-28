@@ -35,7 +35,7 @@ public class ExpiryProductAdapter extends RecyclerView.Adapter<ExpiryProductAdap
 
         final Integer id = products.get(position).getId();
 
-        holder.product_name.setText(products.get(position).getProduct_name()+" "+products.get(position).getSku());
+        holder.product_name.setText(products.get(position).getProduct_name()+" - "+products.get(position).getBrand());
         holder.product_code.setText("Ksh." +products.get(position).getProduct_code());
 
 
@@ -47,7 +47,7 @@ public class ExpiryProductAdapter extends RecyclerView.Adapter<ExpiryProductAdap
             public void onClick(View v) {
 
 
-               openDetailActivity(id.toString(),products.get(position).getProduct_name()+" "+products.get(position).getSku(),products.get(position).getPrice(), products.get(position).getImage(), products.get(position).getProduct_code(), products.get(position).getStatus());
+               openDetailActivity(id.toString(),products.get(position).getProduct_name(),products.get(position).getPrice(), products.get(position).getImage(), products.get(position).getProduct_code(), products.get(position).getStatus(), products.get(position).getCountry(), products.get(position).getABV(), products.get(position).getDesc(), products.get(position).getBrand(), products.get(position).getCategory(), products.get(position).getSub());
             }
         });
 
@@ -81,12 +81,7 @@ public class ExpiryProductAdapter extends RecyclerView.Adapter<ExpiryProductAdap
         }
     }
 
-
-
-     private void openDetailActivity(String product_id,String product_name, String price, String product_image, String product_code, String status){
-
-
-
+     private void openDetailActivity(String product_id,String product_name, String price, String product_image, String product_code, String status, String country, String abv, String desc, String brand, String category, String sub){
 
         Intent i = new Intent(context, ExpiryProductActivity.class);
 
@@ -97,6 +92,13 @@ public class ExpiryProductAdapter extends RecyclerView.Adapter<ExpiryProductAdap
          i.putExtra("PRODUCT_STATUS", status);
          i.putExtra("PRODUCT_IMAGE", product_image);
          i.putExtra("PRODUCT_PRICE", price);
+         i.putExtra("PRODUCT_COUNTRY", country);
+         i.putExtra("PRODUCT_ABV", abv);
+         i.putExtra("PRODUCT_DETAILS", desc);
+         i.putExtra("PRODUCT_BRAND", brand);
+         i.putExtra("PRODUCT_DESC", category);
+         i.putExtra("PRODUCT_DESC", category);
+         i.putExtra("PRODUCT_SUB", sub);
 
         context.startActivity(i);
 

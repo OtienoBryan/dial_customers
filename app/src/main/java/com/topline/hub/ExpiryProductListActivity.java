@@ -95,7 +95,6 @@ public class ExpiryProductListActivity extends AppCompatActivity {
 
     }
 
-
     public void fetchExpiryProducts(String key, String adminId){
 
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
@@ -108,8 +107,7 @@ public class ExpiryProductListActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
 
                 product = response.body();
-                adapter = new
-                        ExpiryProductAdapter(product, ExpiryProductListActivity.this);
+                adapter = new ExpiryProductAdapter(product, ExpiryProductListActivity.this);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
             }
@@ -125,9 +123,6 @@ public class ExpiryProductListActivity extends AppCompatActivity {
 
 
     }
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

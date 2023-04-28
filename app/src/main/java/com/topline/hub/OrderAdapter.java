@@ -35,23 +35,42 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
     @Override
     public void onBindViewHolder(final ProductViewHolder holder, int position) {
         final OrderModel cat = cats.get(position);
+        final String status = cats.get(position).getImage();
 
 
 
         final Integer id = cat.getId();
 
-        //final String cat_id = cat.getCat_id();
-        //holder.cat_name.setText(cat.getName());
         holder.quantity.setText("Date: "+cat.getQuantity());
         holder.price.setText("Amount: Ksh."+cat.getPrice());
-        holder.subTotal.setText("Status:"+cat.getSub_total());
-        //Glide.with(mCtx).load(cat.getImage()).into(holder.product_image);
+        //holder.subTotal.setText("Status:"+cat.getSub_total());
+
+        switch (status) {
+            case "1":
+
+                holder.subTotal.setText("Pending");
+                break;
+            case "2":
+
+                holder.subTotal.setText("Canceled");
+                holder.cardView.setBackgroundColor(R.color.red);
+                break;
+            case "3":
+
+                holder.subTotal.setText("In Progress");
+                break;
+            case "4":
+
+                holder.subTotal.setText("Delivered");
+                holder.cardView.setBackgroundColor(R.color.logout);
+                break;
+        }
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                openDetailActivity(id.toString(), cat.getCat_id(),cat.getName());
+                openDetailActivity(id.toString(), cat.getCat_id(),cat.getName(), cat.getImage());
             }
         });
 
@@ -86,7 +105,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
         }
     }
 
-    private void openDetailActivity(String id, String cat_id, String name){
+    private void openDetailActivity(String id, String cat_id, String name, String image){
 
         Intent i = new Intent(mCtx, CartItems.class);
 
@@ -94,6 +113,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
         i.putExtra("ID_KEY", id);
         i.putExtra("CAT_ID", cat_id);
         i.putExtra("CAT_NAME", name);
+        i.putExtra("STATUS", image);
 
         mCtx.startActivity(i);
 

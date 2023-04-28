@@ -179,9 +179,6 @@ public class CategoryProducts extends AppCompatActivity {
                                         cat.getString("brand"),
                                         cat.getString("country"),
                                         cat.getString("details")
-
-                                        //cat.getString("catcolor_id")
-
                                 ));
                             }
 
@@ -198,7 +195,7 @@ public class CategoryProducts extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         progressBar.setVisibility(View.GONE);
-                        Toast.makeText(CategoryProducts.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(CategoryProducts.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -207,11 +204,11 @@ public class CategoryProducts extends AppCompatActivity {
         Volley.newRequestQueue(this).add(stringRequest);
     }
 
-//    public void onBackPressed(){
-//        //super.onBackPressed();
-//
-//        startActivity(new Intent(ProductCategoryActivity.this, QuestionsActivity.class));
-//    }
+    public void onBackPressed(){
+        //super.onBackPressed();
+
+        startActivity(new Intent(CategoryProducts.this, MainActivity.class));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -230,8 +227,8 @@ public class CategoryProducts extends AppCompatActivity {
         }else if(id == R.id.call){
             call();
             return  true;
-        }else if(id == R.id.orders){
-            //startActivity(new Intent(MainActivity.this, AppointmentsActivity.class));
+        }else if(id == R.id.cart){
+            startActivity(new Intent(CategoryProducts.this, Cart.class));
             return  true;
         }
         return super.onOptionsItemSelected(item);

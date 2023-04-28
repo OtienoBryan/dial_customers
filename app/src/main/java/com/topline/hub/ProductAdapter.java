@@ -255,28 +255,4 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     }
 
-
-
-//    private void openDetailActivity(String id, String cat_id, String name){
-//
-//
-//
-//
-//        Intent i = new Intent(mCtx, MainActivity.class);
-//
-//        //PACK DATA
-//        i.putExtra("ID_KEY", id);
-//        i.putExtra("CAT_ID", cat_id);
-//        i.putExtra("CAT_NAME", name);
-//
-//        mCtx.startActivity(i);
-//
-//    }
-
-
-
-
-
-
-
 }

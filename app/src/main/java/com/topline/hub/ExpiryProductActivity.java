@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -494,13 +496,22 @@ public class ExpiryProductActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.topping, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if(id == android.R.id.home){
-            finish();
+        if (id == R.id.ses) {
+            startActivity(new Intent(ExpiryProductActivity.this, ExpiryProductListActivity.class));
+
+            return true;
+        }else if(id == R.id.cart){
+            startActivity(new Intent(ExpiryProductActivity.this, Cart.class));
+            return  true;
         }
         return super.onOptionsItemSelected(item);
     }

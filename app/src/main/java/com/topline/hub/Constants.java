@@ -65,7 +65,7 @@ public class Constants {
  public static final String URL_FETCH_PRODUCT_CATEGORIES = ROOT_URL+"GetProductCategory.php?selecteditem=";
     public static final String URL_BRANDS = ROOT_URL+"GetProductBrands.php?selecteditem=";
     public static final String URL_SERVICE = ROOT_URL+"services.php?selecteditem=";
- public static final String URL_FETCH_PRODUCT_COMPETITOR = ROOT_URL+"GetProductCompetitor.php?selecteditem=";
+    public static final String URL_FETCH_PRODUCT_COMPETITOR = ROOT_URL+"GetProductCompetitor.php?selecteditem=";
     public static final String URL_FETCH_PROMOTIONS = ROOT_URL+"GetRegisteredPromotion.php";
     public static final String URL_COMPETITIVE_ACTIVITY = ROOT_URL+"competitiveActivity.php";
     public static final String URL_BIDCO_ACTIVITY = ROOT_URL+"bidcoActivity.php";
@@ -76,6 +76,8 @@ public class Constants {
     public static final String URL_POST_NOTIFY = ROOT_URL+"post_notify.php";
     public static final String URL_POST_FAVORITE = ROOT_URL+"post_favorite.php";
     public static final String URL_POST_ORDER_DELETE = ROOT_URL+"item_deletes.php";
+    public static final String URL_ADD_QUANTITY = ROOT_URL+"item_add.php";
+    public static final String URL_SUBTRACT_QUANTITY = ROOT_URL+"item_subtract.php";
     public static final String URL_POST_FAV_DELETE = ROOT_URL+"fav_deletes.php";
     public static final String URL_PRICE_WATCH_REPORT = ROOT_URL+"price_watchReport.php";
     public static final String URL_QUALITY_REPORT = ROOT_URL+"qualityReport.php";
@@ -85,6 +87,7 @@ public class Constants {
     public static final String URL_SOSNEW_REPORT = ROOT_URL+"newSosReport.php";
     public static final String URL_SOS_REPORT = ROOT_URL+"sosReport.php";
     public static final String URL_PRODUCT_EXPIRY_REPORT_UPDATE = ROOT_URL+"product_expiryReport_update.php";
+    public static final String URL_USER_UPDATE = ROOT_URL+"user_update.php";
     public static final String URL_NEW_EXPIRY_REPORT_UPDATE = ROOT_URL+"new_expiryReport_update.php";
 
 ////// FOR QUESTIONNAIRES
@@ -104,6 +107,7 @@ public class Constants {
     public static final String URL_COMPLETE = ROOT_URL+"complete.php?clickeditem=";
     public static final String URL_POST_CHECKOUT = ROOT_URL+"checkoutReport.php";
     public static final String URL_POST_REORDER = ROOT_URL+"re_order.php";
+    public static final String URL_POST_CANCEL = ROOT_URL+"cancel_order.php";
     public static final String URL_COMPLETE_ORDER = ROOT_URL+"confirm_complete.php";
 
     //views

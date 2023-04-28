@@ -50,7 +50,6 @@ public interface ApiInterface {
     @GET("getMarket_report.php")
     Call< List<MarketView_model> > getMarketReports(@Query("key") String keyword, @Query("userid") String userId);
 
-
     @GET("getActivity_report.php")
     Call< List<ActivityTracker_model> > getActivityReports(@Query("key") String keyword, @Query("userid") String userId);
 

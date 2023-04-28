@@ -32,19 +32,35 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:layout_below="@id/lnview"
-        android:layout_marginBottom="70dp">
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:id="@+id/checkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/cancel"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="4dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:text="Re-Order"
+        android:visibility="gone"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/red"
-        android:text="Re-Order"
+        android:text="Cancel Order"
         android:textColor="#fff"
+        android:visibility="gone"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp" />
 

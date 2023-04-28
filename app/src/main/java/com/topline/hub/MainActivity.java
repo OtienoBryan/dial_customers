@@ -188,33 +188,33 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Requesting ACCESS_FINE_LOCATION using Dexter library
-        Dexter.withActivity(this)
-                .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-                .withListener(new PermissionListener() {
-                    @Override
-                    public void onPermissionGranted(PermissionGrantedResponse response) {
-                        mRequestingLocationUpdates = true;
-                        startLocationUpdates();
-
-                       // Toast.makeText(getApplicationContext(), "Started location updates!", Toast.LENGTH_SHORT).show();
-
-
-                    }
-
-                    @Override
-                    public void onPermissionDenied(PermissionDeniedResponse response) {
-                        if (response.isPermanentlyDenied()) {
-                            // open device settings when the permission is
-                            // denied permanently
-                            openSettings();
-                        }
-                    }
-
-                    @Override
-                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-                        token.continuePermissionRequest();
-                    }
-                }).check();
+//        Dexter.withActivity(this)
+//                .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+//                .withListener(new PermissionListener() {
+//                    @Override
+//                    public void onPermissionGranted(PermissionGrantedResponse response) {
+//                        mRequestingLocationUpdates = true;
+//                        //startLocationUpdates();
+//
+//                       // Toast.makeText(getApplicationContext(), "Started location updates!", Toast.LENGTH_SHORT).show();
+//
+//
+//                    }
+//
+//                    @Override
+//                    public void onPermissionDenied(PermissionDeniedResponse response) {
+//                        if (response.isPermanentlyDenied()) {
+//                            // open device settings when the permission is
+//                            // denied permanently
+//                            openSettings();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+//                        token.continuePermissionRequest();
+//                    }
+//                }).check();
 
 
 
@@ -305,97 +305,97 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void issueTracker(){
-        final View loginView = getLayoutInflater().inflate(R.layout.issue_tracker_model, null);
-        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setView(loginView);
-        final EditText edtIssue = (EditText) loginView.findViewById(R.id.edtTrackerIssue);
-        final EditText edtName = (EditText) loginView.findViewById(R.id.edtTrackerName);
-        final EditText edtEmail = (EditText) loginView.findViewById(R.id.edtTrackerEmail);
-        final Spinner spnIssue = (Spinner) loginView.findViewById(R.id.spnTrackerAccount);
-        final Button btnSubmit = (Button) loginView.findViewById(R.id.btnIssueSend);
-        Button btnCancel = (Button) loginView.findViewById(R.id.btnIssueCancel);
-        final boolean[] result = {false};
-        ArrayList<String> issues = new ArrayList<>();
-        issues.clear();
-        issues.add("Expiry");
-        issues.add("Damages");
-        issues.add("Quality");
-        issues.add("Placement");
-        issues.add("POSM Usage");
-        issues.add("Order Placement & Delivery");
-        issues.add("Share of Shelf");
-        issues.add("Listings request");
-        issues.add("Asset usage & Status");
-        ArrayAdapter<String> spnAdapter = new ArrayAdapter(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, issues);
-        spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnIssue.setAdapter(spnAdapter);
-
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!edtIssue.getText().toString().equals("") || !edtName.getText().toString().equals("") || !edtEmail.getText().toString().equals("")) {
-                    btnSubmit.setText("Submitting ...");
-                    btnSubmit.setClickable(false);
-                    apiInterface.postIssue(""+SharedPrefManager.getUserId(),
-                            SharedPrefManager.getInstance(MainActivity.this).getUsername() + " " + SharedPrefManager.getInstance(MainActivity.this).getUserLastname(),
-                            SharedPrefManager.getInstance(MainActivity.this).getUserTelephone(),
-                            SharedPrefManager.getInstance(MainActivity.this).getUserAccount(),
-                            edtIssue.getText().toString(),
-                            edtName.getText().toString(),
-                            edtEmail.getText().toString(),
-                            edtIssue.getText().toString()).enqueue(new Callback<JsonObject>() {
-                        @Override
-                        public void onResponse(Call<JsonObject> call, retrofit2.Response<JsonObject> response) {
-                            btnSubmit.setText("Submit");
-                            btnSubmit.setClickable(true);
-                            if (response.body().equals(null)) {
-                                Toast.makeText(MainActivity.this, "Error! Check your internet connection", Toast.LENGTH_SHORT).show();
-                            } else {
-                                if (response.body().get("status").getAsBoolean()) {
-                                    showLoginDialog.dismiss();
-                                    Toast.makeText(MainActivity.this, response.body().get("message").getAsString(), Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(MainActivity.this, "Error! " + response.body().get("message").getAsString(), Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<JsonObject> call, Throwable t) {
-                            t.printStackTrace();
-                            btnSubmit.setText("Submit");
-                            btnSubmit.setClickable(true);
-                            Toast.makeText(MainActivity.this, "Error! Try again", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } else {
-                    Toast.makeText(MainActivity.this, "The issue comment, recipient name and email address are required", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showLoginDialog.dismiss();
-            }
-        });
-
-        try {
-
-            showLoginDialog = builder.create();
-            showLoginDialog.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            final ViewGroup parentViewGroup = (ViewGroup) loginView.getParent();
-            parentViewGroup.removeView(loginView);
-            showLoginDialog = builder.create();
-            showLoginDialog.show();
-        }
-
-    }
+//    private void issueTracker(){
+//        final View loginView = getLayoutInflater().inflate(R.layout.issue_tracker_model, null);
+//        final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//        builder.setView(loginView);
+//        final EditText edtIssue = (EditText) loginView.findViewById(R.id.edtTrackerIssue);
+//        final EditText edtName = (EditText) loginView.findViewById(R.id.edtTrackerName);
+//        final EditText edtEmail = (EditText) loginView.findViewById(R.id.edtTrackerEmail);
+//        final Spinner spnIssue = (Spinner) loginView.findViewById(R.id.spnTrackerAccount);
+//        final Button btnSubmit = (Button) loginView.findViewById(R.id.btnIssueSend);
+//        Button btnCancel = (Button) loginView.findViewById(R.id.btnIssueCancel);
+//        final boolean[] result = {false};
+//        ArrayList<String> issues = new ArrayList<>();
+//        issues.clear();
+//        issues.add("Expiry");
+//        issues.add("Damages");
+//        issues.add("Quality");
+//        issues.add("Placement");
+//        issues.add("POSM Usage");
+//        issues.add("Order Placement & Delivery");
+//        issues.add("Share of Shelf");
+//        issues.add("Listings request");
+//        issues.add("Asset usage & Status");
+//        ArrayAdapter<String> spnAdapter = new ArrayAdapter(MainActivity.this, R.layout.support_simple_spinner_dropdown_item, issues);
+//        spnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spnIssue.setAdapter(spnAdapter);
+//
+//        btnSubmit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (!edtIssue.getText().toString().equals("") || !edtName.getText().toString().equals("") || !edtEmail.getText().toString().equals("")) {
+//                    btnSubmit.setText("Submitting ...");
+//                    btnSubmit.setClickable(false);
+//                    apiInterface.postIssue(""+SharedPrefManager.getUserId(),
+//                            SharedPrefManager.getInstance(MainActivity.this).getUsername() + " " + SharedPrefManager.getInstance(MainActivity.this).getUserLastname(),
+//                            SharedPrefManager.getInstance(MainActivity.this).getUserTelephone(),
+//                            SharedPrefManager.getInstance(MainActivity.this).getUserAccount(),
+//                            edtIssue.getText().toString(),
+//                            edtName.getText().toString(),
+//                            edtEmail.getText().toString(),
+//                            edtIssue.getText().toString()).enqueue(new Callback<JsonObject>() {
+//                        @Override
+//                        public void onResponse(Call<JsonObject> call, retrofit2.Response<JsonObject> response) {
+//                            btnSubmit.setText("Submit");
+//                            btnSubmit.setClickable(true);
+//                            if (response.body().equals(null)) {
+//                                Toast.makeText(MainActivity.this, "Error! Check your internet connection", Toast.LENGTH_SHORT).show();
+//                            } else {
+//                                if (response.body().get("status").getAsBoolean()) {
+//                                    showLoginDialog.dismiss();
+//                                    Toast.makeText(MainActivity.this, response.body().get("message").getAsString(), Toast.LENGTH_SHORT).show();
+//                                } else {
+//                                    Toast.makeText(MainActivity.this, "Error! " + response.body().get("message").getAsString(), Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onFailure(Call<JsonObject> call, Throwable t) {
+//                            t.printStackTrace();
+//                            btnSubmit.setText("Submit");
+//                            btnSubmit.setClickable(true);
+//                            Toast.makeText(MainActivity.this, "Error! Try again", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//                } else {
+//                    Toast.makeText(MainActivity.this, "The issue comment, recipient name and email address are required", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//
+//        btnCancel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showLoginDialog.dismiss();
+//            }
+//        });
+//
+//        try {
+//
+//            showLoginDialog = builder.create();
+//            showLoginDialog.show();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            final ViewGroup parentViewGroup = (ViewGroup) loginView.getParent();
+//            parentViewGroup.removeView(loginView);
+//            showLoginDialog = builder.create();
+//            showLoginDialog.show();
+//        }
+//
+//    }
 
 
     ////// THIS BLOCK OF CODES FOR GPS LOCATION SERVICES...........................START...
@@ -618,25 +618,6 @@ public class MainActivity extends AppCompatActivity {
                     + ", Lng: " + mCurrentLocation.getLongitude(), Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(getApplicationContext(), "Last known location is not available!", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            // Check for the integer request code originally supplied to startResolutionForResult().
-            case REQUEST_CHECK_SETTINGS:
-                switch (resultCode) {
-                    case Activity.RESULT_OK:
-                        Log.e(TAG, "User agreed to make required location settings changes.");
-                        // Nothing to do. startLocationupdates() gets called in onResume again.
-                        break;
-                    case Activity.RESULT_CANCELED:
-                        Log.e(TAG, "User chose not to make required location settings changes.");
-                        mRequestingLocationUpdates = false;
-                        break;
-                }
-                break;
         }
     }
 
@@ -885,7 +866,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void logout(){
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("Logout !");
+        alertDialogBuilder.setMessage("Logout Dial A Drink!");
         alertDialogBuilder.setPositiveButton("yes",
                 new DialogInterface.OnClickListener() {
                     @Override

@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,6 +14,7 @@ public class User extends AppCompatActivity {
 
     LinearLayout lnOrder, ln2;
     TextView user, phone;
+    ImageView edit;
 
 
     @SuppressLint("MissingInflatedId")
@@ -29,6 +31,7 @@ public class User extends AppCompatActivity {
         phone = (TextView) findViewById(R.id.phone);
         lnOrder = (LinearLayout) findViewById(R.id.lnOrder);
         ln2 = (LinearLayout) findViewById(R.id.ln2);
+        edit = (ImageView) findViewById(R.id.edit);
 
         user.setText(userName);
         phone.setText(my_phone);
@@ -48,5 +51,31 @@ public class User extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(User.this, UserEdit.class);
+
+                //PACK DATA
+                i.putExtra("ID_KEY", userId);
+                i.putExtra("USER_NAME", userName);
+                i.putExtra("PHONE_KEY", my_phone);
+
+
+                startActivity(i);
+            }
+        });
+
+
     }
+
+    public void onBackPressed(){
+        //super.onBackPressed();
+
+        startActivity(new Intent(User.this, MainActivity.class));
+    }
+
+
 }

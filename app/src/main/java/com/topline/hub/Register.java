@@ -43,7 +43,14 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     public static String c_password;
     public static String s_password;
 
-    EditText name,lname,phone,email,address,house,password,cpassword;
+    EditText name;
+    EditText lname;
+    EditText phone;
+    EditText email;
+    EditText address;
+    EditText house;
+    EditText password;
+    EditText cpassword;
     Button btnSubmit;
 
     private ProgressDialog pd, progressDialog;
@@ -68,8 +75,8 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         lname =(EditText) findViewById(R.id.lname);
         phone =(EditText) findViewById(R.id.phone);
         email =(EditText) findViewById(R.id.email);
-        address =(EditText) findViewById(R.id.address);
-        house =(EditText) findViewById(R.id.house);
+        final String address = "Address";
+        final String house ="House";
         password =(EditText) findViewById(R.id.password);
         cpassword =(EditText) findViewById(R.id.cpassword);
         btnSubmit =(Button) findViewById(R.id.submit_button);
@@ -79,7 +86,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
             public void onClick(View v) {
                 if (cd.isConnectingToInternet()) {
                     if(name.getText().toString().trim().equalsIgnoreCase("") || phone.getText().toString().trim().equalsIgnoreCase("") || email.getText().toString().trim().equalsIgnoreCase("") ||
-                            address.getText().toString().trim().equalsIgnoreCase("") || lname.getText().toString().trim().equalsIgnoreCase("") || password.getText().toString().trim().equalsIgnoreCase("")){
+                             lname.getText().toString().trim().equalsIgnoreCase("") || password.getText().toString().trim().equalsIgnoreCase("")){
                         Toast.makeText(Register.this, "All Fields are Required", Toast.LENGTH_SHORT).show();
                     }else if(!password.getText().toString().trim().equals(cpassword.getText().toString().trim())){
 
@@ -113,8 +120,8 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         final String l_name = lname.getText().toString().trim();
         final String e_phone = phone.getText().toString().trim();
         final String e_email = email.getText().toString().trim();
-        final String e_address = address.getText().toString().trim();
-        final String e_house = house.getText().toString().trim();
+        final String e_address = String.valueOf(address);
+        final String e_house = String.valueOf(house);
         final String e_password = password.getText().toString().trim();
 
 

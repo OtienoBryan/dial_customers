@@ -43,7 +43,7 @@ public class CartItems extends AppCompatActivity {
 
     private ProgressBar progressBar;
 
-    Button checkout, add_cart;
+    Button checkout, cancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,7 @@ public class CartItems extends AppCompatActivity {
         //String shelf_id = i.getExtras().getString("SHELF_KEY");
         String shelf_id = "1";
         final String order_id = i.getExtras().getString("ID_KEY");
+        final String status = i.getExtras().getString("STATUS");
 
         category_id = shelf_id;
         orders_id = order_id;
@@ -69,7 +70,14 @@ public class CartItems extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         progressBar = (ProgressBar)findViewById(R.id.progress);
         checkout = (Button) findViewById(R.id.checkout);
-        //add_cart = (Button) findViewById(R.id.add_cart);
+        cancel = (Button) findViewById(R.id.cancel);
+
+        if(status.equals("1")){
+            cancel.setVisibility(View.VISIBLE);
+        }else if(status.equals("4")){
+            checkout.setVisibility(View.VISIBLE);
+        }
+
 
 
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
@@ -91,13 +99,13 @@ public class CartItems extends AppCompatActivity {
             }
         });
 
-//        add_cart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                startActivity(new Intent(CartItems.this, ProductCat.class));
-//            }
-//        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                cancel();
+            }
+        });
 
 
 
@@ -221,6 +229,52 @@ public class CartItems extends AppCompatActivity {
 
 
     }
+
+    private void cancel(){
+
+        final String userId = SharedPrefManager.getInstance(this).getUserId().toString().trim();
+        final String userName = SharedPrefManager.getInstance(this).getUsername().trim();
+        final String adminId = SharedPrefManager.getInstance(this).getUserUnit().trim();
+        final String contact = SharedPrefManager.getInstance(this).getUserTelephone().trim();
+        final String order_id = orders_id;
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                Constants.URL_POST_CANCEL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        startActivity(new Intent(CartItems.this, Cart.class));
+                        CartItems.this.finish();
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(CartItems.this, "Error Occurred Try again", Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+
+                params.put("user_name", userName);
+                params.put("user_id", userId);
+                params.put("admin_id", adminId);
+                params.put("user_contact", contact);
+                params.put("order_id", order_id);
+
+                return params;
+            }
+        };
+
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+
+
+
+    }
+
 
 
 }

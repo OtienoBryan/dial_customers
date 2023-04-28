@@ -116,7 +116,7 @@ public class Cart extends AppCompatActivity {
 
     private void loadCategories() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_CART,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_CART + user_id,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -152,7 +152,7 @@ public class Cart extends AppCompatActivity {
                             recyclerView.setAdapter(adapter);
                             if (cats.size() > 0) {
                                 checkout.setEnabled(true);
-                                Toast.makeText(Cart.this, "Records updated.", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Cart.this, "Records updated.", Toast.LENGTH_SHORT).show();
                             } else {
                                 startActivity(new Intent(Cart.this, MainActivity.class));
                                 Toast.makeText(Cart.this, "No Items in Cart.", Toast.LENGTH_SHORT).show();
