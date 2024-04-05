@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     defaultConfig {
         applicationId "com.dial.dialcustomer"
         minSdkVersion 24
-        targetSdkVersion 31
-        versionCode 23
-        versionName "2.4"
+        targetSdkVersion 33
+        versionCode 29
+        versionName "2.5"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
@@ -69,6 +69,18 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
+
+
+    implementation deps.retrofit.core
+    implementation deps.retrofit.gsonConverter
+    //OKHTTP3
+    implementation deps.okhttp3.core
+    implementation deps.okhttp3.interceptor
+
+    //Firebase
+    implementation deps.firebase
+    //Log - Replace the Android Log Class
+    implementation deps.timber
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -74,6 +75,15 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
             }
         });
 
+        holder.track.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                openTrack(status);
+//                mCtx.startActivity(new Intent(mCtx, OrderTracking.class));
+            }
+        });
+
 
 
     }
@@ -88,6 +98,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
         TextView cat_name, quantity, price, subTotal;
         // RelativeLayout relativeLayout;
         CardView cardView;
+        Button track;
         ImageView product_image;
 
 
@@ -99,6 +110,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
             //product_image = itemView.findViewById(R.id.product_image);
             quantity = itemView.findViewById(R.id.txtQuantity);
             price = itemView.findViewById(R.id.unitPrice);
+            track = itemView.findViewById(R.id.order_tracking);
             subTotal = itemView.findViewById(R.id.subTotal);
 
 
@@ -115,6 +127,16 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ProductViewH
         i.putExtra("CAT_NAME", name);
         i.putExtra("STATUS", image);
 
+        mCtx.startActivity(i);
+
+    }
+
+    private void openTrack(String status){
+
+        Intent i = new Intent(mCtx, OrderTracking.class);
+
+        //PACK DATA
+        i.putExtra("ID_KEY", status);
         mCtx.startActivity(i);
 
     }

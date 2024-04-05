@@ -83,14 +83,19 @@
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-
-
         <Button
             android:id="@+id/btnUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/comments"
-            android:text="Update"
+            android:text="Update Password"
+            style="@style/buttons"/>
+        <Button
+            android:id="@+id/btnDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/comments"
+            android:text="Delete Account"
             style="@style/buttons"/>
 
     </LinearLayout>

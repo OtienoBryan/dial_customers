@@ -8,6 +8,6 @@
 
     <stroke
         andoroid:width="2dp"
-        andoroid:color="@color/colorPrimary"/>
+        andoroid:color="@color/red"/>
 
 </shape>

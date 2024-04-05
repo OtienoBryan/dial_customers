@@ -1,6 +1,7 @@
 package com.topline.hub;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -42,7 +43,7 @@ public class AppointmentsFragment extends Fragment {
 
     //CardView newAppointments,tasks, follow;
     CardView lnOffer, lnArrival,lnGift,lnPopular;
-    CardView cvWhisky, cvWines, cvCognac, cvVapes;
+    CardView cvWhisky, cvWines, cvCognac, cvVapes, cvGin, cvBeer, cvVodka, cvRum, cvChampagne, cvTequilla, cvBrandy, cvExtra;
     Button btnNew;
     LinearLayout category, home, notification, profile, call, orders;
     TextView user_name, user_phone, user_role, user_team,activity,txtDate;
@@ -51,6 +52,7 @@ public class AppointmentsFragment extends Fragment {
     List<ProductModel> cats;
     private final int MY_PERMISSIONS_CALL= 7;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -83,7 +85,15 @@ public class AppointmentsFragment extends Fragment {
         cvWhisky = (CardView)v.findViewById(R.id.cvWhisky);
         cvCognac = (CardView)v.findViewById(R.id.cvCognac);
         cvWines = (CardView)v.findViewById(R.id.cvWines);
-        cvVapes = (CardView)v.findViewById(R.id.cvVapes);
+        //cvVapes = (CardView)v.findViewById(R.id.cvVapes);
+        cvGin = (CardView)v.findViewById(R.id.cvGin);
+        cvBeer = (CardView)v.findViewById(R.id.cvBeer);
+        cvVodka = (CardView)v.findViewById(R.id.cvVodka);
+        cvRum = (CardView)v.findViewById(R.id.cvRum);
+        cvChampagne = (CardView)v.findViewById(R.id.cvChampagne);
+        cvTequilla = (CardView)v.findViewById(R.id.cvTequilla);
+        cvBrandy = (CardView)v.findViewById(R.id.cvBrandy);
+        cvExtra = (CardView)v.findViewById(R.id.cvExtra);
         //lnLife = (CardView)v.findViewById(R.id.lnLife);
 
         if (ContextCompat.checkSelfPermission(act, Manifest.permission.CALL_PHONE)
@@ -199,6 +209,88 @@ public class AppointmentsFragment extends Fragment {
             }
         });
 
+        cvGin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "8";
+                final String name = "Gins";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+
+        cvBeer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "9";
+                final String name = "Beers";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+        cvVodka.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "15";
+                final String name = "Vodkas";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+        cvRum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "4";
+                final String name = "Rum";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+        cvChampagne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "5";
+                final String name = "Champagnes";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+        cvTequilla.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "7";
+                final String name = "Tequilla";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+        cvBrandy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "11";
+                final String name = "Brandy";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+        cvExtra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String id = "2";
+                final String cat_id = "23";
+                final String name = "Extras and Soft Drinks";
+
+                openCategory(id, cat_id, name);
+            }
+        });
+
 //        cvWines.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -217,16 +309,16 @@ public class AppointmentsFragment extends Fragment {
                 openCategory(id, cat_id, name);
             }
         });
-        cvVapes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String id = "2";
-                final String cat_id = "14";
-                final String name = "Cigarettes";
-
-                openCategory(id, cat_id, name);
-            }
-        });
+//        cvVapes.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final String id = "2";
+//                final String cat_id = "14";
+//                final String name = "Cigarettes";
+//
+//                openCategory(id, cat_id, name);
+//            }
+//        });
 
 
         lnOffer.setOnClickListener(new View.OnClickListener() {

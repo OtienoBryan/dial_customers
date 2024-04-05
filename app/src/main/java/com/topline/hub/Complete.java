@@ -1,5 +1,6 @@
 package com.topline.hub;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,17 +43,19 @@ public class Complete extends AppCompatActivity {
 
     //a list to store all the products
     List<CompleteModel> cats;
+    List<CompleteModel> cat1;
     private ArrayList<String> daysList = new ArrayList<>();
 
     //the recyclerview
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, recyclerView1;
 
     private ProgressBar progressBar;
     Spinner spnMethod;
     EditText instruction, address;
 
-    Button confirm, add_cart;
+    Button confirm, pay;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +76,11 @@ public class Complete extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView1 = (RecyclerView) findViewById(R.id.recycler1);
+        recyclerView1.setHasFixedSize(true);
+        recyclerView1.setLayoutManager(new LinearLayoutManager(this));
+
         progressBar = (ProgressBar)findViewById(R.id.progress);
 
         instruction = (EditText) findViewById(R.id.instruction);
@@ -82,6 +90,7 @@ public class Complete extends AppCompatActivity {
 
         user_id = SharedPrefManager.getInstance(this).getUserId().toString();
         admin_id = SharedPrefManager.getInstance(this).getUserUnit();
+
 
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,8 +109,10 @@ public class Complete extends AppCompatActivity {
 
         //initializing the productlist
         cats = new ArrayList<>();
+        cat1 = new ArrayList<>();
 
         loadCategories();
+        loadRequest();
 //        fetchOutlet();
         loadPay(spnMethod,daysList);
 
@@ -163,6 +174,60 @@ public class Complete extends AppCompatActivity {
                             //creating adapter object and setting it to recyclerview
                             CompleteAdapter adapter = new CompleteAdapter(Complete.this, cats);
                             recyclerView.setAdapter(adapter);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        progressBar.setVisibility(View.GONE);
+                        //Toast.makeText(Complete.this, "Error Loading Product Category Try again", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+        //adding our stringrequest to queue
+        Volley.newRequestQueue(this).add(stringRequest);
+    }
+
+    private void loadRequest() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, Constants.URL_COMPLETE + user_id,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        progressBar.setVisibility(View.GONE);
+
+                        try {
+                            //converting the string to json array object
+                            JSONArray array = new JSONArray(response);
+
+                            //traversing through all the object
+                            for (int i = 0; i < array.length(); i++) {
+
+                                //getting product object from json array
+                                JSONObject cat = array.getJSONObject(i);
+
+                                //adding the Task to Task list
+                                cat1.add(new CompleteModel(
+                                        cat.getInt("id"),
+                                        cat.getString("cat_id"),
+                                        cat.getString("customer_name"),
+                                        cat.getString("territory_id"),
+                                        cat.getString("territory_name"),
+                                        cat.getString("delivery_fee"),
+                                        cat.getString("total")
+                                        //cat.getString("catcolor_id")
+
+                                ));
+                            }
+
+                            //creating adapter object and setting it to recyclerview
+                            RequestCash adapters = new RequestCash(Complete.this, cat1);
+                            recyclerView1.setAdapter(adapters);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

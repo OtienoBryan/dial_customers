@@ -490,9 +490,9 @@ public class ExpiryProductActivity extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-        //super.onBackPressed();
+        super.onBackPressed();
 
-        startActivity(new Intent(ExpiryProductActivity.this, MainActivity.class));
+        //startActivity(new Intent(ExpiryProductActivity.this, MainActivity.class));
     }
 
     @Override

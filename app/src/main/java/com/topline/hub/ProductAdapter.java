@@ -28,6 +28,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private Context mCtx;
     private List<ProductModel> cats;
 
+
+
     public ProductAdapter(Context mCtx, List<ProductModel> cats) {
         this.mCtx = mCtx;
         this.cats = cats;
@@ -38,6 +40,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.activity_product_adapter2, null);
         return new ProductViewHolder(view);
+
     }
 
     @SuppressLint("ResourceAsColor")
@@ -61,7 +64,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
         //final String cat_id = cat.getCat_id();
         holder.cat_name.setText(cat.getName());
-        holder.price.setText("KES "+cat.getPrice());
+        holder.price.setText(cat.getPrice() +" /-");
         Glide.with(mCtx).load(cat.getImage()).into(holder.image);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -102,8 +105,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         TextView cat_name, price;
         // RelativeLayout relativeLayout;
         CardView cardView;
-        ImageView image, fav, stock_out;
-        Button add_cart;
+        ImageView image, fav, stock_out, add_cart;
+//        Button add_cart;
+
 
 
         public ProductViewHolder(View itemView) {
@@ -163,9 +167,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     public void onResponse(String response) {
 
                         Toast.makeText(mCtx, "Added to Cart", Toast.LENGTH_LONG).show();
-//                        startActivity(new Intent(Cart.this, Cart.class));
-//                        Cart.this.finish();
-
+                        mCtx.startActivity(new Intent(mCtx, Cart.class));
                     }
                 },
                 new Response.ErrorListener() {
